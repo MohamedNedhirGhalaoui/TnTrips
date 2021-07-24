@@ -1,16 +1,3 @@
 # tn_trips
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Une application de guide de voyage qui aide les gens à mieux se connecter avec les autres et à explorer les lieux qu'ils visitent, donc une fois que vous  choisi une destination ,l'application vous proposera des lieux a visiter,de l'information sur les choses à faire sur place est il les classe par catégories.
