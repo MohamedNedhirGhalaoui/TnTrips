@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Background extends StatelessWidget {
+class LoginScreenBackground extends StatelessWidget {
   final Widget child;
-  const Background({
+  const LoginScreenBackground({
     required this.child,
   });
 

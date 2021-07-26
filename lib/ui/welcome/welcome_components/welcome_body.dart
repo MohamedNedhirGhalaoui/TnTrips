@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tn_trips/screens/authenticate/Login/login_screen.dart';
-import 'package:tn_trips/screens/authenticate/Signup/signup_screen.dart';
-import 'package:tn_trips/screens/Welcome/components/background.dart';
-import 'package:tn_trips/screens/common/rounded_button.dart';
+import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
+import 'package:tn_trips/ui/welcome/welcome_components/welcome_background.dart';
+import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Body extends StatelessWidget {
+class WelcomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
-    return Background(
+    return WelcomeBackground(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

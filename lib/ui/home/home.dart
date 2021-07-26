@@ -1,4 +1,4 @@
-import 'package:tn_trips/services/auth_service.dart';
+import 'package:tn_trips/data/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/constants.dart';

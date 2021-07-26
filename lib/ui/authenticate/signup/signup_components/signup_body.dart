@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:tn_trips/screens/authenticate/Login/login_screen.dart';
-import 'package:tn_trips/screens/authenticate/Signup/components/background.dart';
-import 'package:tn_trips/screens/authenticate/Signup/components/or_divider.dart';
-import 'package:tn_trips/screens/authenticate/Signup/components/social_icon.dart';
-import 'package:tn_trips/screens/common/already_have_an_account_acheck.dart';
-import 'package:tn_trips/screens/common/rounded_button.dart';
-import 'package:tn_trips/screens/common/rounded_input_field.dart';
-import 'package:tn_trips/screens/common/rounded_password_field.dart';
+import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_components/signup_background.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_components/or_divider.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_components/signup_social_icon.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
+import 'package:tn_trips/ui/common/already_have_an_account_acheck.dart';
+import 'package:tn_trips/ui/common/rounded_button.dart';
+import 'package:tn_trips/ui/common/rounded_confirme_password_field.dart';
+import 'package:tn_trips/ui/common/rounded_input_field.dart';
+import 'package:tn_trips/ui/common/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tn_trips/services/auth_service.dart';
+import 'package:tn_trips/data/services/auth_service.dart';
 
-class Body extends StatefulWidget {
+class SignUpBody extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
-class _BodyState extends State<Body> {
+class _BodyState extends State<SignUpBody> {
   AuthService _auth = AuthService();
 
   String email = '';
 
   String password = '';
+
   String error = '';
 
   final _formkey = GlobalKey<FormState>();
@@ -28,7 +31,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
+    return SignUPBackground(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -57,10 +60,16 @@ class _BodyState extends State<Body> {
                   RoundedPasswordField(
                     onChanged: (value) {
                       setState(() {
+                        RoundedPasswordField.password = value;
                         password = value;
                       });
                     },
                   ),
+                  // RoundedConfirmePasswordField(
+                  //   onChanged: (value) {
+                  //     setState(() {});
+                  //   },
+                  // ),
                   RoundedButton(
                     text: "SIGNUP",
                     press: () async {

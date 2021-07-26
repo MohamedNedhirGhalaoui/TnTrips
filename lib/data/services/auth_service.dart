@@ -1,4 +1,4 @@
-import 'package:tn_trips/models/user.dart';
+import 'package:tn_trips/data/models/current_user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {

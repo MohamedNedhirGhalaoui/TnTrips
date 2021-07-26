@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:tn_trips/common/constants.dart';
-import 'package:tn_trips/routes/wrapper.dart';
+import 'package:tn_trips/ui/routes/wrapper.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:tn_trips/screens/authenticate/Login/components/background.dart';
+import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_screen_background.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
   void setupLoading() async {
-    await Future.delayed(Duration(seconds: 10));
+    await Future.delayed(Duration(seconds: 3));
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
       return Wrapper();
     }));
@@ -26,7 +26,7 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Background(
+      body: LoginScreenBackground(
         child: Column(
           children: [
             SizedBox(height: 100.0),

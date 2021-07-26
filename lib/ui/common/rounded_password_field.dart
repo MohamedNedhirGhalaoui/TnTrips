@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:tn_trips/screens/common/text_field_container.dart';
+import 'package:tn_trips/ui/common/text_field_container.dart';
 import 'package:tn_trips/common/constants.dart';
 
-class RoundedInputField extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
+class RoundedPasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
-  const RoundedInputField({
-    required this.hintText,
-    this.icon = Icons.person,
+  static String password = '';
+  const RoundedPasswordField({
     required this.onChanged,
   });
 
@@ -16,15 +13,20 @@ class RoundedInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFieldContainer(
       child: TextFormField(
-        validator: (value) => value!.isEmpty ? "Entre an email" : null,
+        validator: (value) => value!.length < 6 ? "Enter an password 6 chars +" : null,
+        obscureText: true,
         onChanged: onChanged,
         cursorColor: kPrimaryColor,
         decoration: InputDecoration(
+          hintText: "Password",
           icon: Icon(
-            icon,
+            Icons.lock,
             color: kPrimaryColor,
           ),
-          hintText: hintText,
+          suffixIcon: Icon(
+            Icons.visibility,
+            color: kPrimaryColor,
+          ),
           border: InputBorder.none,
         ),
       ),

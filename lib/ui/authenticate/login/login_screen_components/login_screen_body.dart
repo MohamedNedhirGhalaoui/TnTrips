@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:tn_trips/screens/authenticate/Login/components/background.dart';
-import 'package:tn_trips/screens/authenticate/Signup/signup_screen.dart';
-import 'package:tn_trips/screens/common/already_have_an_account_acheck.dart';
-import 'package:tn_trips/screens/common/rounded_button.dart';
-import 'package:tn_trips/screens/common/rounded_input_field.dart';
-import 'package:tn_trips/screens/common/rounded_password_field.dart';
+import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_screen_background.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
+import 'package:tn_trips/ui/common/already_have_an_account_acheck.dart';
+import 'package:tn_trips/ui/common/rounded_button.dart';
+import 'package:tn_trips/ui/common/rounded_input_field.dart';
+import 'package:tn_trips/ui/common/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tn_trips/services/auth_service.dart';
+import 'package:tn_trips/data/services/auth_service.dart';
 
-class Body extends StatefulWidget {
+class LoginScreenBody extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
 
-class _BodyState extends State<Body> {
+class _BodyState extends State<LoginScreenBody> {
   String email = '';
 
   String password = '';
@@ -26,7 +26,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
+    return LoginScreenBackground(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

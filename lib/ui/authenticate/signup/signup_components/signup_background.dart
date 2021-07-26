@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Background extends StatelessWidget {
+class SignUPBackground extends StatelessWidget {
   final Widget child;
-  const Background({
+  const SignUPBackground({
     required this.child,
   });
 
@@ -12,6 +12,7 @@ class Background extends StatelessWidget {
     return Container(
       height: size.height,
       width: double.infinity,
+      // Here i can use size.width but use double.infinity because both work as a same
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -19,8 +20,8 @@ class Background extends StatelessWidget {
             top: 0,
             left: 0,
             child: Image.asset(
-              "assets/images/main_top.png",
-              width: size.width * 0.3,
+              "assets/images/signup_top.png",
+              width: size.width * 0.35,
             ),
           ),
           Positioned(
@@ -28,7 +29,7 @@ class Background extends StatelessWidget {
             left: 0,
             child: Image.asset(
               "assets/images/main_bottom.png",
-              width: size.width * 0.2,
+              width: size.width * 0.25,
             ),
           ),
           child,
