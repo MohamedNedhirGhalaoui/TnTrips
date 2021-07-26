@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tn_trips/screens/authenticate/Login/components/background.dart';
-import 'package:tn_trips/screens/authenticate/Login/login_screen.dart';
 import 'package:tn_trips/screens/authenticate/Signup/signup_screen.dart';
 import 'package:tn_trips/screens/common/already_have_an_account_acheck.dart';
 import 'package:tn_trips/screens/common/rounded_button.dart';
@@ -72,11 +71,7 @@ class _BodyState extends State<Body> {
                             error = _auth.error_signIn.substring(30);
                           });
                         } else {
-                          for (int i = 0;
-                              i <= SignUpScreen.nbPop + LoginScreen.nbPop;
-                              i++) {
-                            Navigator.pop(context, {});
-                          }
+                          Navigator.pop(context, {});
                         }
                       }
                     },
@@ -96,11 +91,10 @@ class _BodyState extends State<Body> {
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(
               press: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      SignUpScreen.nbPop++;
                       return SignUpScreen();
                     },
                   ),

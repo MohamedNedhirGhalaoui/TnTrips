@@ -1,5 +1,5 @@
 import 'package:tn_trips/models/user.dart';
-import 'package:tn_trips/routes/wrapper.dart';
+import 'package:tn_trips/screens/Welcome/loading.dart';
 import 'package:tn_trips/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       initialData: CurrentUser(uid: '1'),
       child: MaterialApp(
-        home: Wrapper(),
+        home: Loading(),
       ),
     );
   }

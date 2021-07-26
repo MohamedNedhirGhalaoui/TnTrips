@@ -8,7 +8,6 @@ import 'package:tn_trips/screens/common/rounded_button.dart';
 import 'package:tn_trips/screens/common/rounded_input_field.dart';
 import 'package:tn_trips/screens/common/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tn_trips/screens/authenticate/Signup/signup_screen.dart';
 import 'package:tn_trips/services/auth_service.dart';
 
 class Body extends StatefulWidget {
@@ -73,11 +72,7 @@ class _BodyState extends State<Body> {
                             error = _auth.error_register.substring(36);
                           });
                         } else {
-                          for (int i = 0;
-                              i <= SignUpScreen.nbPop + LoginScreen.nbPop;
-                              i++) {
-                            Navigator.pop(context, {});
-                          }
+                          Navigator.pop(context, {});
                         }
                       }
                     },
@@ -98,11 +93,10 @@ class _BodyState extends State<Body> {
             AlreadyHaveAnAccountCheck(
               login: false,
               press: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      LoginScreen.nbPop++;
                       return LoginScreen();
                     },
                   ),
