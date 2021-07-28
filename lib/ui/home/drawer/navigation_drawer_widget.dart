@@ -22,19 +22,73 @@ class NavigationDrawerWidget extends StatelessWidget {
     return Drawer(
       child: Material(
         color: kPrimaryColor,
-        child: ListView(children: <Widget>[
-          buildHeader(
-            urlImage: urlImage,
-            name: name,
-            email: email,
-            onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => UserPage(
-                name: 'Mohamed Nedhir',
-                urlImage: urlImage,
+        child: ListView(
+          children: <Widget>[
+            buildHeader(
+              urlImage: urlImage,
+              name: name,
+              email: email,
+              onClicked: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => UserPage(
+                  name: 'Mohamed Nedhir',
+                  urlImage: urlImage,
+                ),
+              )),
+            ),
+            Container(
+              padding: padding,
+              child: Column(
+                children: [
+                  const SizedBox(height: 12),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Hotels',
+                    icon: Icons.local_hotel_rounded,
+                    onClicked: () => selectedItem(context, 0),
+                  ),
+                  const SizedBox(height: 24),
+                  buildMenuItem(
+                    text: 'Restaurants',
+                    icon: Icons.restaurant_menu_rounded,
+                    onClicked: () => selectedItem(context, 1),
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'cafes',
+                    icon: Icons.coffee_maker_rounded,
+                    onClicked: () => selectedItem(context, 2),
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Favourites',
+                    icon: Icons.favorite_border,
+                    onClicked: () => selectedItem(context, 3),
+                  ),
+                  const SizedBox(height: 24),
+                  buildMenuItem(
+                    text: 'Location',
+                    icon: Icons.location_on,
+                    onClicked: () => selectedItem(context, 4),
+                  ),
+                  Divider(color: Colors.white70),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                    text: 'Settings',
+                    icon: Icons.settings,
+                    onClicked: () => selectedItem(context, 5),
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
+                      text: 'Logout',
+                      icon: Icons.logout,
+                      onClicked: () async {
+                        await _auth.signOut();
+                      })
+                ],
               ),
-            )),
-          )
-        ]),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -77,4 +131,57 @@ class NavigationDrawerWidget extends StatelessWidget {
           ),
         ),
       );
+
+  Widget buildMenuItem({
+    required String text,
+    required IconData icon,
+    VoidCallback? onClicked,
+  }) {
+    final color = Colors.white;
+    final hoverColor = Colors.white70;
+
+    return ListTile(
+      leading: Icon(icon, color: color),
+      title: Text(text, style: TextStyle(color: color)),
+      hoverColor: hoverColor,
+      onTap: onClicked,
+    );
+  }
+
+  void selectedItem(BuildContext context, int index) {
+    //Navigator.of(context).pop();
+
+    switch (index) {
+      case 0:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => HotelsPage(),
+        ));
+        break;
+      case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => RestaurantsPage(),
+        ));
+        break;
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => CafesPage(),
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => FavouritesPage(),
+        ));
+        break;
+      case 4:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => LocationPage(),
+        ));
+        break;
+      case 5:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => SettingsPage(),
+        ));
+        break;
+    }
+  }
 }
