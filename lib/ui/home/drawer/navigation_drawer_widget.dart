@@ -7,6 +7,7 @@ import 'package:tn_trips/ui/home/page/hotels_page.dart';
 import 'package:tn_trips/ui/home/page/location_page.dart';
 import 'package:tn_trips/ui/home/page/restaurants_page.dart';
 import 'package:tn_trips/ui/home/page/settings_page.dart';
+import 'package:tn_trips/ui/home/page/sports_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -61,22 +62,28 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
+                    text: 'Sports',
+                    icon: Icons.sports,
+                    onClicked: () => selectedItem(context, 3),
+                  ),
+                  const SizedBox(height: 16),
+                  buildMenuItem(
                     text: 'Favourites',
                     icon: Icons.favorite_border,
-                    onClicked: () => selectedItem(context, 3),
+                    onClicked: () => selectedItem(context, 4),
                   ),
                   const SizedBox(height: 24),
                   buildMenuItem(
                     text: 'Location',
                     icon: Icons.location_on,
-                    onClicked: () => selectedItem(context, 4),
+                    onClicked: () => selectedItem(context, 5),
                   ),
                   Divider(color: Colors.white70),
                   const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Settings',
                     icon: Icons.settings,
-                    onClicked: () => selectedItem(context, 5),
+                    onClicked: () => selectedItem(context, 6),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
@@ -170,15 +177,20 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => FavouritesPage(),
+          builder: (context) => SportsPage(),
         ));
         break;
       case 4:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => LocationPage(),
+          builder: (context) => FavouritesPage(),
         ));
         break;
       case 5:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => LocationPage(),
+        ));
+        break;
+      case 6:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => SettingsPage(),
         ));
