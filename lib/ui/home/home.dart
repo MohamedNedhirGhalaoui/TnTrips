@@ -4,6 +4,7 @@ import 'package:tn_trips/ui/home/drawer/navigation_drawer_widget.dart';
 import 'package:tn_trips/ui/home/page/chats_page.dart';
 import 'package:tn_trips/ui/home/page/location_page.dart';
 import 'package:tn_trips/ui/home/page/notifications_page.dart';
+import 'package:tn_trips/ui/home/page/recommended_places_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class Home extends StatelessWidget {
@@ -73,6 +74,15 @@ class Home extends StatelessWidget {
                     builder: (context) => NotificationsPage()));
               },
               icon: Icon(Icons.notifications_active_rounded),
+              iconSize: 30.0,
+              color: Colors.white,
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => RecommendedPlacesPage()));
+              },
+              icon: Icon(Icons.recommend_rounded),
               iconSize: 30.0,
               color: Colors.white,
             )
