@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tn_trips">
    <application
-        android:label="tn_trips"
-        android:icon="@mipmap/ic_launcher">
+        android:label="TN TRIPS"
+        android:icon="@mipmap/tn_trips_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
