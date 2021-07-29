@@ -5,6 +5,7 @@ import 'package:tn_trips/common/constants.dart';
 
 class RoundedConfirmePasswordField extends StatelessWidget {
   final ValueChanged<String> onChanged;
+  static String confirmePassword = '';
   const RoundedConfirmePasswordField({
     required this.onChanged,
   });
@@ -14,11 +15,11 @@ class RoundedConfirmePasswordField extends StatelessWidget {
     return TextFieldContainer(
       child: TextFormField(
         validator: (value) {
-          value != RoundedPasswordField.password
-              ? "Enter an password identic "
-              : null;
-          print(RoundedPasswordField.password);
-          print(value);
+          if (confirmePassword != RoundedPasswordField.password) {
+            return "Enter an password identic ";
+          } else {
+            return null;
+          }
         },
         obscureText: true,
         onChanged: onChanged,
