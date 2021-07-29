@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/ui/home/drawer/navigation_drawer_widget.dart';
 import 'package:tn_trips/ui/home/page/chats_page.dart';
 import 'package:tn_trips/ui/home/page/location_page.dart';
+import 'package:tn_trips/ui/home/page/notifications_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class Home extends StatelessWidget {
@@ -17,9 +18,10 @@ class Home extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.notifications_active_rounded)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.home),
+            ),
           )
         ],
         centerTitle: true,
@@ -65,10 +67,18 @@ class Home extends StatelessWidget {
               color: Colors.white,
               iconSize: 30.0,
             ),
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => NotificationsPage()));
+              },
+              icon: Icon(Icons.notifications_active_rounded),
+              iconSize: 30.0,
+              color: Colors.white,
+            )
           ]),
         ),
       ),
     );
   }
 }
-
