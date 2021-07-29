@@ -17,7 +17,10 @@ class UserPage extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.person),
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: NetworkImage(urlImage),
+              ),
             )
           ],
           backgroundColor: kPrimaryColor,
