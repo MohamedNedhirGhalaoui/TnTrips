@@ -2,8 +2,8 @@ import 'package:tn_trips/common/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/ui/home/drawer/navigation_drawer_widget.dart';
 import 'package:tn_trips/ui/home/page/chats_page.dart';
+import 'package:tn_trips/ui/home/page/contact_us_page.dart';
 import 'package:tn_trips/ui/home/page/location_page.dart';
-import 'package:tn_trips/ui/home/page/notifications_page.dart';
 import 'package:tn_trips/ui/home/page/recommended_places_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
 
@@ -61,6 +61,15 @@ class Home extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => RecommendedPlacesPage()));
+              },
+              icon: Icon(Icons.recommend_rounded),
+              iconSize: 30.0,
+              color: Colors.white,
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>
                         UserPage(name: "Nedhir", urlImage: urlImage)));
               },
@@ -70,22 +79,13 @@ class Home extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => NotificationsPage()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ContactUsPage()));
               },
-              icon: Icon(Icons.notifications_active_rounded),
-              iconSize: 30.0,
+              icon: Icon(Icons.contact_mail),
               color: Colors.white,
+              iconSize: 30.0,
             ),
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => RecommendedPlacesPage()));
-              },
-              icon: Icon(Icons.recommend_rounded),
-              iconSize: 30.0,
-              color: Colors.white,
-            )
           ]),
         ),
       ),
