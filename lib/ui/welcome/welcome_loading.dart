@@ -59,10 +59,22 @@ class _LoadingState extends State<Loading> {
                 ),
               ),
             ),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/welcome1.png"),
+                  radius: 30.0,
+                ),
+                CircleAvatar(
+              backgroundImage: AssetImage("assets/images/welcome2.png"),
+              radius: 30.0,
+            ),
             CircleAvatar(
-              backgroundImage: AssetImage("assets/images/welcomme.png"),
-              radius: 20.0,
+              backgroundImage: AssetImage("assets/images/welcome3.png"),
+              radius: 30.0,
             )
+              ],
+            ),
           ],
         ),
       ),
