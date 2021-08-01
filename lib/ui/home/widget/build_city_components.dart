@@ -7,74 +7,81 @@ import 'build_city_icons.dart';
 
 class BuildCityComponents extends StatelessWidget {
   final City city;
-  const BuildCityComponents({Key? key,required this.city}) : super(key: key);
+  final Function onCityClick;
+  const BuildCityComponents({Key? key, required this.city, required this.onCityClick})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(20.0),
-      height: 150.0,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: Image.asset(
-                "assets/images/citys/" + this.city.imageName + ".jpg",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: Container(
-              height: 120.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20.0),
-                  bottomRight: Radius.circular(20.0),
-                ),
-                gradient: LinearGradient(
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter,
-                  colors: [Colors.black.withOpacity(0.7), Colors.transparent],
+    return GestureDetector(
+      onTap: () {
+        this.onCityClick();
+      },
+      child: Container(
+        margin: EdgeInsets.all(20.0),
+        height: 150.0,
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image.asset(
+                  "assets/images/citys/" + this.city.imageName + ".jpg",
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Row(
-                children: [
-                  BuildCityIcons(color: HOTELS, index: 0),
-                  SizedBox(
-                    width: 10.0,
+            Positioned(
+              bottom: 0.0,
+              left: 0.0,
+              right: 0.0,
+              child: Container(
+                height: 120.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20.0),
+                    bottomRight: Radius.circular(20.0),
                   ),
-                  BuildCityIcons(color: RESTAURANTS, index: 1),
-                  SizedBox(
-                    width: 10.0,
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                    colors: [Colors.black.withOpacity(0.7), Colors.transparent],
                   ),
-                  BuildCityIcons(color: CAFES, index: 2),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  BuildCityIcons(color: SPORTS, index: 3),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  Text(
-                    city.name,
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  )
-                ],
+                ),
               ),
             ),
-          )
-        ],
+            Positioned(
+              bottom: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    BuildCityIcons(color: HOTELS, index: 0),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    BuildCityIcons(color: RESTAURANTS, index: 1),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    BuildCityIcons(color: CAFES, index: 2),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    BuildCityIcons(color: SPORTS, index: 3),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text(
+                      city.name,
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

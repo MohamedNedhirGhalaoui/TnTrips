@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/data/services/Utils.dart';
 import 'package:tn_trips/ui/home/drawer/navigation_drawer_widget.dart';
+import 'package:tn_trips/ui/home/page/selected_city_page.dart';
 import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 import 'package:tn_trips/ui/home/widget/build_city_components.dart';
 
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         actions: [
           Container(
-            margin: EdgeInsets.only(right:10 ),
+            margin: EdgeInsets.only(right: 10),
             padding: EdgeInsets.all(10),
             child: ClipOval(
               child: Image.network(
@@ -43,7 +44,15 @@ class Home extends StatelessWidget {
               child: ListView.builder(
                   itemCount: citys.length,
                   itemBuilder: (BuildContext contexte, int index) {
-                    return BuildCityComponents(city: citys[index]);
+                    return BuildCityComponents(
+                      city: citys[index],
+                      onCityClick: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (contexte) => SelectedCityPage()));
+                      },
+                    );
                   }),
             )
           ],
