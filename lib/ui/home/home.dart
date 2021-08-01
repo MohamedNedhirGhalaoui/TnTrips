@@ -93,6 +93,37 @@ class Home extends StatelessWidget {
                                 ),
                               ),
                             ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 2.0,
+                                ),
+                                buildCityIcons(HOTELS, 0),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                buildCityIcons(RESTAURANTS, 1),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                buildCityIcons(CAFES, 2),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                buildCityIcons(SPORTS, 3),
+                                SizedBox(
+                                  width: 10.0,
+                                ),
+                                Text(
+                                  citys[index].name,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 25),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -176,6 +207,20 @@ class Home extends StatelessWidget {
             iconSize: 30.0,
           ),
         ]),
+      ),
+    );
+  }
+
+  Widget buildCityIcons(Color color, int index) {
+    return ClipOval(
+      child: Container(
+        color: color,
+        padding: EdgeInsets.all(10.0),
+        child: Icon(
+          citys[index].icons[index],
+          color: Colors.white,
+          size: 20.0,
+        ),
       ),
     );
   }
