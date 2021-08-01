@@ -19,7 +19,7 @@ class BuildCityIcons extends StatelessWidget {
         child: Icon(
           citys[index].icons[index],
           color: Colors.white,
-          size: 20.0,
+          size: 25.0,
         ),
       ),
     );
