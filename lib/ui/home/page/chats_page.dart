@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
+
 class ChatsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
