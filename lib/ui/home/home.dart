@@ -5,6 +5,7 @@ import 'package:tn_trips/ui/home/page/chats_page.dart';
 import 'package:tn_trips/ui/home/page/contact_us_page.dart';
 import 'package:tn_trips/ui/home/page/location_page.dart';
 import 'package:tn_trips/ui/home/page/recommended_places_page.dart';
+import 'package:tn_trips/ui/home/page/settings_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class Home extends StatelessWidget {
@@ -31,63 +32,81 @@ class Home extends StatelessWidget {
         elevation: 0.0,
       ),
       drawer: NavigationDrawerWidget(),
-      bottomNavigationBar: Container(
-        height: 60,
-        width: double.infinity,
-        padding: EdgeInsets.all(10),
-        color: kPrimaryColor,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => LocationPage()));
-              },
-              icon: Icon(Icons.location_on),
-              color: Colors.white,
-              iconSize: 30.0,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => ChatsPage()));
-              },
-              icon: Icon(Icons.chat),
-              color: Colors.white,
-              iconSize: 30.0,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => RecommendedPlacesPage()));
-              },
-              icon: Icon(Icons.recommend_rounded),
-              iconSize: 30.0,
-              color: Colors.white,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        UserPage(name: "Nedhir", urlImage: urlImage)));
-              },
-              icon: Icon(Icons.person),
-              color: Colors.white,
-              iconSize: 30.0,
-            ),
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ContactUsPage()));
-              },
-              icon: Icon(Icons.contact_mail),
-              color: Colors.white,
-              iconSize: 30.0,
-            ),
-          ]),
-        ),
+      bottomNavigationBar: buildBottomNavigationBar(context),
+    );
+  }
+
+  Widget buildBottomNavigationBar(BuildContext context) {
+    return Container(
+      height: 60,
+      width: double.infinity,
+      padding: EdgeInsets.all(10),
+      color: kPrimaryColor,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => LocationPage()));
+            },
+            icon: Icon(Icons.location_on),
+            color: Colors.white,
+            iconSize: 30.0,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ChatsPage()));
+            },
+            icon: Icon(Icons.chat),
+            color: Colors.white,
+            iconSize: 30.0,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => RecommendedPlacesPage()));
+            },
+            icon: Icon(Icons.recommend_rounded),
+            iconSize: 30.0,
+            color: Colors.white,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      UserPage(name: "Nedhir", urlImage: urlImage)));
+            },
+            icon: Icon(Icons.person),
+            color: Colors.white,
+            iconSize: 30.0,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ContactUsPage()));
+            },
+            icon: Icon(Icons.contact_mail),
+            color: Colors.white,
+            iconSize: 30.0,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => SettingsPage()));
+            },
+            icon: Icon(Icons.settings),
+            color: Colors.white,
+            iconSize: 30.0,
+          ),
+        ]),
       ),
     );
   }
