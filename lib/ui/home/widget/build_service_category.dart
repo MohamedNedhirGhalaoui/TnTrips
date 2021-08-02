@@ -4,14 +4,18 @@ import 'package:tn_trips/data/models/service_catagory.dart';
 
 class BuildServiceCategory extends StatelessWidget {
   final ServiceCategory serviceCategory;
-  const BuildServiceCategory({Key? key, required this.serviceCategory})
+  final Function onServiceCategoryClick;
+  const BuildServiceCategory(
+      {Key? key,
+      required this.serviceCategory,
+      required this.onServiceCategoryClick})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //this.onCityClick();
+        this.onServiceCategoryClick();
       },
       child: Container(
         margin: EdgeInsets.all(20.0),

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
+import 'package:tn_trips/ui/home/page/selected_sub_service_category.dart';
 import 'package:tn_trips/ui/home/widget/build_service_category.dart';
 
 class SelectedCityPage extends StatelessWidget {
@@ -57,6 +58,14 @@ class SelectedCityPage extends StatelessWidget {
                     List.generate(this.city.servicecategorys.length, (index) {
                   return BuildServiceCategory(
                     serviceCategory: city.servicecategorys[index],
+                    onServiceCategoryClick: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SelectedSubServiceCategory(
+                                  selectedServiceCategory:
+                                      city.servicecategorys[index])));
+                    },
                   );
                 }),
               ),

@@ -5,9 +5,11 @@ class ServiceCategory {
   Color color;
   IconData icon;
   String imageName;
+  List<ServiceCategory>? subServiceCategorys;
   ServiceCategory(
       {required this.name,
       required this.color,
       required this.icon,
-      required this.imageName});
+      required this.imageName,
+      this.subServiceCategorys});
 }
