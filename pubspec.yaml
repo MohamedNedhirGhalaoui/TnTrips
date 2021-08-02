@@ -53,7 +53,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/services/
-    - assets/images/services/hotels/
+    - assets/images/services/hotels/tunisia/
     - assets/images/citys/
     - assets/icons/
 

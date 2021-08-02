@@ -75,14 +75,14 @@ class SelectedSubServiceCategory extends StatelessWidget {
                   this.selectedServiceCategory.subServiceCategorys!.length,
                   (index) {
                     return GestureDetector(onTap: (){
-                      
+
                     },
                       child: Container(
                         child: Column(
                           children: [
                             ClipOval(
                               child: Image.asset(
-                                "assets/images/services/hotels/" +
+                                "assets/images/services/hotels/tunisia/" +
                                     this
                                         .selectedServiceCategory
                                         .subServiceCategorys![index]
