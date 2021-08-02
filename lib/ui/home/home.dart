@@ -42,15 +42,20 @@ class Home extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
+                  padding: EdgeInsets.only(bottom: 10.0),
                   itemCount: citys.length,
                   itemBuilder: (BuildContext contexte, int index) {
                     return BuildCityComponents(
                       city: citys[index],
                       onCityClick: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (contexte) => SelectedCityPage()));
+                          context,
+                          MaterialPageRoute(
+                            builder: (contexte) => SelectedCityPage(
+                              city: citys[index],
+                            ),
+                          ),
+                        );
                       },
                     );
                   }),
