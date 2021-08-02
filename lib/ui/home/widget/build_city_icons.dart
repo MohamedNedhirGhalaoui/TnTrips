@@ -6,9 +6,9 @@ import 'package:tn_trips/data/services/Utils.dart';
 class BuildCityIcons extends StatelessWidget {
   final Color color;
   final int index;
-   BuildCityIcons({Key? key, required this.color, required this.index}) : super(key: key);
+  BuildCityIcons({Key? key, required this.color, required this.index}) : super(key: key);
 
-  List<City> citys = Utils.getCitys();
+  final List<City> citys = Utils.getCitys();
 
   @override
   Widget build(BuildContext context) {
