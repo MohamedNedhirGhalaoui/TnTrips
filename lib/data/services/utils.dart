@@ -3,6 +3,7 @@ import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
+import 'package:tn_trips/data/models/sub_service_category_image.dart';
 
 class Utils {
   static List<City> getCitys() {
@@ -28,62 +29,85 @@ class Utils {
                       name: "AFRICA",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "AFRICA"),
+                      imageName: "AFRICA",
+                      gallery: [
+                        SubServiceCategoryImage(imageName: "AFRICA1"),
+                        SubServiceCategoryImage(imageName: "AFRICA2"),
+                        SubServiceCategoryImage(imageName: "AFRICA3"),
+                        SubServiceCategoryImage(imageName: "AFRICA4"),
+                        SubServiceCategoryImage(imageName: "AFRICA5"),
+                        SubServiceCategoryImage(imageName: "AFRICA6"),
+                        SubServiceCategoryImage(imageName: "AFRICA7"),
+                        SubServiceCategoryImage(imageName: "AFRICA8"),
+                        SubServiceCategoryImage(imageName: "AFRICA9"),
+                        SubServiceCategoryImage(imageName: "AFRICA10"),
+                      ]),
                   SubServiceCategory(
                       name: "Belvédère Optic",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "BelvédèreOptic"),
+                      imageName: "BelvédèreOptic",
+                      gallery: []),
                   SubServiceCategory(
                       name: "Carthage Thalasso Resort",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "CarthageThalassoResort"),
+                      imageName: "CarthageThalassoResort",
+                      gallery: []),
                   SubServiceCategory(
                       name: "CARTLON",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "CARTLON"),
+                      imageName: "CARTLON",
+                      gallery: []),
                   SubServiceCategory(
                       name: "Golden Tulip El Mechtel",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "GoldenTulipElMechtel"),
+                      imageName: "GoldenTulipElMechtel",
+                      gallery: []),
                   SubServiceCategory(
                       name: "LE SUILTANA",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "LESUILTANA"),
+                      imageName: "LESUILTANA",
+                      gallery: []),
                   SubServiceCategory(
                       name: "IBIS",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "IBIS"),
+                      imageName: "IBIS",
+                      gallery: []),
                   SubServiceCategory(
                       name: "La Tour Blanche",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "LaTourBlanche"),
+                      imageName: "LaTourBlanche",
+                      gallery: []),
                   SubServiceCategory(
                       name: "LAICO",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "LAICO"),
+                      imageName: "LAICO",
+                      gallery: []),
                   SubServiceCategory(
                       name: "Mövenpick",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "Mövenpick"),
+                      imageName: "Mövenpick",
+                      gallery: []),
                   SubServiceCategory(
                       name: "ROYAL VICTORIA",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "ROYALVICTORIA"),
+                      imageName: "ROYALVICTORIA",
+                      gallery: []),
                   SubServiceCategory(
                       name: "Sheraton Tunis Hotel",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
-                      imageName: "SheratonTunisHotel"),
+                      imageName: "SheratonTunisHotel",
+                      gallery: []),
                 ]),
             ServiceCategory(
                 name: "Restaurants",

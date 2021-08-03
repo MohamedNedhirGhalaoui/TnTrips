@@ -9,7 +9,7 @@ class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   _MainAppBarState createState() => _MainAppBarState();
 
   @override
-  Size get preferredSize => new Size.fromHeight(80.0);
+  Size get preferredSize => new Size.fromHeight(50.0);
 }
 
 class _MainAppBarState extends State<MainAppBar> {
@@ -31,7 +31,7 @@ class _MainAppBarState extends State<MainAppBar> {
       backgroundColor: Colors.transparent,
       title: CircleAvatar(
         backgroundImage: AssetImage("assets/images/trip.png"),
-        radius: 26.5,
+        radius: 26,
       ),
       elevation: 0.0,
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
+import 'package:tn_trips/ui/home/page/detailes_page.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 
 class SelectedSubServiceCategory extends StatelessWidget {
@@ -56,7 +57,17 @@ class SelectedSubServiceCategory extends StatelessWidget {
                   this.selectedServiceCategory.subServiceCategorys!.length,
                   (index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                subServiceCategory: this
+                                    .selectedServiceCategory
+                                    .subServiceCategorys![index]),
+                          ),
+                        );
+                      },
                       child: Container(
                         child: Column(
                           children: [
