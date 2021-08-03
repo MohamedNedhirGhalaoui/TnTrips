@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
+import 'package:tn_trips/data/models/onboarding_page.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/data/models/sub_service_category_image.dart';
@@ -348,6 +349,26 @@ class Utils {
               subServiceCategorys: [])
         ],
       ),
+    ];
+  }
+
+  static List<OnBorardingPage> getOnBoardingPage() {
+    return [
+      OnBorardingPage(
+          title: "Tn Trips",
+          description:
+              "A travel guide inside Tunisia that enables you to find all services from hotels, restaurants and cafes to enjoy your trip.",
+          image: "trips.png"),
+      OnBorardingPage(
+          title: "Move",
+          description:
+              "You can count on us and move around freely to find the right services for you.",
+          image: "onboarding1.png"),
+      OnBorardingPage(
+          title: "Meet People",
+          description:
+              "You can meet people, organize trips with them, and have fun.",
+          image: "onboarding2.png")
     ];
   }
 }
