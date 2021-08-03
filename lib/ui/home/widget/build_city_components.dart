@@ -8,7 +8,8 @@ import 'build_city_icons.dart';
 class BuildCityComponents extends StatelessWidget {
   final City city;
   final Function onCityClick;
-  const BuildCityComponents({Key? key, required this.city, required this.onCityClick})
+  const BuildCityComponents(
+      {Key? key, required this.city, required this.onCityClick})
       : super(key: key);
 
   @override
@@ -74,7 +75,10 @@ class BuildCityComponents extends StatelessWidget {
                     ),
                     Text(
                       city.name,
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

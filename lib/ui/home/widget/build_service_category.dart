@@ -74,7 +74,10 @@ class BuildServiceCategory extends StatelessWidget {
                     ),
                     Text(
                       this.serviceCategory.name,
-                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

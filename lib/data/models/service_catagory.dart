@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:tn_trips/data/models/sub_service_category.dart';
 
 class ServiceCategory {
   String name;
   Color color;
   IconData icon;
   String imageName;
-  List<ServiceCategory>? subServiceCategorys;
+  List<SubServiceCategory>? subServiceCategorys;
   ServiceCategory(
       {required this.name,
       required this.color,
