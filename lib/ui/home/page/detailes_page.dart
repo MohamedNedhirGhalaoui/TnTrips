@@ -116,27 +116,35 @@ class _DetailsPageState extends State<DetailsPage> {
                           itemCount: widget.subServiceCategory.gallery.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (BuildContext context, int index) {
-                            return Container(
-                              margin: EdgeInsets.all(15.0),
-                              width: 170.0,
-                              height: 150.0,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/services/hotels/tunisia/" +
-                                            widget.subServiceCategory
-                                                .gallery[index].imageName +
-                                            ".jpg"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      offset: Offset.zero,
-                                      blurRadius: 10,
-                                    )
-                                  ]),
+                            return InkWell(
+                              onTap: () {
+                                showImage(
+                                    context,
+                                    widget.subServiceCategory.gallery[index]
+                                        .imageName);
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(15.0),
+                                width: 170.0,
+                                height: 150.0,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/services/hotels/tunisia/" +
+                                              widget.subServiceCategory
+                                                  .gallery[index].imageName +
+                                              ".jpg"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        offset: Offset.zero,
+                                        blurRadius: 10,
+                                      )
+                                    ]),
+                              ),
                             );
                           }),
                     )
@@ -147,6 +155,37 @@ class _DetailsPageState extends State<DetailsPage> {
           ],
         ),
       ),
+    );
+  }
+
+  showImage(context, img) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(15),
+              height: 550,
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.asset(
+                  "assets/images/services/hotels/tunisia/" + img + ".jpg",
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
