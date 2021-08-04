@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/welcome/onboarding_page.dart';
+import 'package:tn_trips/ui/welcome/welcome_components/image_theme.dart';
 import 'package:tn_trips/ui/welcome/welcome_components/welcome_background.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/common/constants.dart';
@@ -22,10 +23,7 @@ class WelcomeBody extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.05),
-            SvgPicture.asset(
-              "assets/icons/chat.svg",
-              height: size.height * 0.45,
-            ),
+            ImageTheme(image: "trip"),
             SizedBox(height: size.height * 0.05),
             RoundedButton(
               color: kPrimaryColor,

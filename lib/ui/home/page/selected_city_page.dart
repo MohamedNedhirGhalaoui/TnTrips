@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/ui/home/page/selected_sub_service_category.dart';
 import 'package:tn_trips/ui/home/widget/build_service_category.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class SelectedCityPage extends StatelessWidget {
   final City city;
@@ -19,13 +21,59 @@ class SelectedCityPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Center(
-                child: Text(
-                  this.city.name,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TyperAnimatedText(
+                      this.city.name,
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      speed: Duration(microseconds: 1000),
+                    ),
+                    TyperAnimatedText(
+                      "Hotels",
+                      textStyle: TextStyle(
+                        color: HOTELS,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TyperAnimatedText(
+                      "Restaurants",
+                      textStyle: TextStyle(
+                        color: RESTAURANTS,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TyperAnimatedText(
+                      "Cafes",
+                      textStyle: TextStyle(
+                        color: CAFES,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TyperAnimatedText(
+                      "Sports",
+                      textStyle: TextStyle(
+                        color: SPORTS,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TyperAnimatedText(
+                      this.city.name,
+                      textStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      speed: Duration(microseconds: 1000),
+                    ),
+                  ],
                 ),
               ),
             ),

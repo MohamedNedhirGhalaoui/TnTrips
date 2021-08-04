@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tn_trips/ui/welcome/welcome_components/image_theme.dart';
 
 class OnBoardingPageSlider extends StatelessWidget {
   final String title;
@@ -18,19 +19,14 @@ class OnBoardingPageSlider extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: Image.asset(
-              "assets/images/" + image + ".png",
-              width: width * 0.7,
-            ),
-          ),
+          ImageTheme(image: image),
           SizedBox(
             height: 60,
           ),
           Text(
             title,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
           ),
           SizedBox(
             height: 20,
@@ -42,7 +38,7 @@ class OnBoardingPageSlider extends StatelessWidget {
               style: TextStyle(
                 height: 1.5,
                 fontWeight: FontWeight.normal,
-                fontSize: 14,
+                fontSize: 16,
                 letterSpacing: 0.7,
               ),
               textAlign: TextAlign.center,
