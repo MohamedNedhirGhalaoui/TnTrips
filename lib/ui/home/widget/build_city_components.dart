@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
 
-import 'build_city_icons.dart';
+import 'build_icon.dart';
 
 class BuildCityComponents extends StatelessWidget {
   final City city;
@@ -57,19 +57,19 @@ class BuildCityComponents extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    BuildCityIcons(color: HOTELS, index: 0),
+                    BuildIcon(color: HOTELS, icon:city.icons[0]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildCityIcons(color: RESTAURANTS, index: 1),
+                    BuildIcon(color: RESTAURANTS, icon:city.icons[1]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildCityIcons(color: CAFES, index: 2),
+                    BuildIcon(color: CAFES, icon:city.icons[2]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildCityIcons(color: SPORTS, index: 3),
+                    BuildIcon(color: SPORTS, icon:city.icons[3]),
                     SizedBox(
                       width: 10.0,
                     ),

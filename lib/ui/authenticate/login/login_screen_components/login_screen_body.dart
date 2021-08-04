@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_screen_background.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/common/already_have_an_account_acheck.dart';
@@ -61,6 +62,8 @@ class _BodyState extends State<LoginScreenBody> {
                     },
                   ),
                   RoundedButton(
+                    icon: Icons.login,
+                    color: kPrimaryColor,
                     text: "LOGIN",
                     press: () async {
                       if (_formkey.currentState!.validate()) {

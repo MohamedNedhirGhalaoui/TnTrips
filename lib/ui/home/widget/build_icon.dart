@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/data/services/Utils.dart';
 
-class BuildCityIcons extends StatelessWidget {
+class BuildIcon extends StatelessWidget {
   final Color color;
-  final int index;
-  BuildCityIcons({Key? key, required this.color, required this.index}) : super(key: key);
+  final IconData icon;
+  BuildIcon({Key? key, required this.color, required this.icon})
+      : super(key: key);
 
   final List<City> citys = Utils.getCitys();
 
@@ -17,7 +18,7 @@ class BuildCityIcons extends StatelessWidget {
         color: color,
         padding: EdgeInsets.all(10.0),
         child: Icon(
-          citys[index].icons[index],
+          icon,
           color: Colors.white,
           size: 25.0,
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
+import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -128,26 +129,39 @@ class _DetailsPageState extends State<DetailsPage> {
                                 width: 170.0,
                                 height: 150.0,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25.0),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          "assets/images/services/hotels/tunisia/" +
-                                              widget.subServiceCategory
-                                                  .gallery[index].imageName +
-                                              ".jpg"),
-                                      fit: BoxFit.cover,
+                                  borderRadius: BorderRadius.circular(25.0),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/services/hotels/tunisia/" +
+                                            widget.subServiceCategory
+                                                .gallery[index].imageName +
+                                            ".jpg"),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.1),
+                                      offset: Offset.zero,
+                                      blurRadius: 10,
                                     ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.1),
-                                        offset: Offset.zero,
-                                        blurRadius: 10,
-                                      )
-                                    ]),
+                                  ],
+                                ),
                               ),
                             );
                           }),
-                    )
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RoundedButton(
+                        icon: Icons.location_on_outlined,
+                        color: widget.subServiceCategory.color,
+                        text: "MAP",
+                        press: () {},
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -171,7 +185,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 color: Colors.white,
               ),
               padding: EdgeInsets.all(15),
-              height: 550,
+              height: 450,
               width: MediaQuery.of(context).size.width * 0.8,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),

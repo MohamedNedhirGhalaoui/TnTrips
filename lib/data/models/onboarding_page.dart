@@ -1,8 +1,8 @@
-class OnBorardingPage {
+class OnBoarding {
   final String title;
   final String description;
   final String image;
 
-  OnBorardingPage(
+  OnBoarding(
       {required this.title, required this.description, required this.image});
 }

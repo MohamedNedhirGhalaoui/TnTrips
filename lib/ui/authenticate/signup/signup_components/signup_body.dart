@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_components/signup_background.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_components/or_divider.dart';
@@ -68,7 +69,8 @@ class _BodyState extends State<SignUpBody> {
                       });
                     },
                   ),
-                  RoundedButton(
+                  RoundedButton(icon: Icons.login,
+                    color: kPrimaryColor,
                     text: "SIGNUP",
                     press: () async {
                       if (_formkey.currentState!.validate()) {

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
 import 'package:tn_trips/ui/home/page/detailes_page.dart';
+import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 
 class SelectedSubServiceCategory extends StatelessWidget {
@@ -23,17 +24,9 @@ class SelectedSubServiceCategory extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ClipOval(
-                  child: Container(
+                BuildIcon(
                     color: this.selectedServiceCategory.color,
-                    padding: EdgeInsets.all(10.0),
-                    child: Icon(
-                      this.selectedServiceCategory.icon,
-                      color: Colors.white,
-                      size: 25.0,
-                    ),
-                  ),
-                ),
+                    icon: this.selectedServiceCategory.icon),
                 SizedBox(
                   width: 10.0,
                 ),
