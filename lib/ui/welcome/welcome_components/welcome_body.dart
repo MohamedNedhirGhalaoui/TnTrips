@@ -41,21 +41,6 @@ class WelcomeBody extends StatelessWidget {
               },
             ),
             RoundedButton(
-              color: kPrimaryColor,
-              icon: Icons.login,
-              text: "LOGIN",
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-            RoundedButton(
               icon: Icons.login,
               text: "SIGN UP",
               color: kPrimaryColor,
@@ -66,6 +51,21 @@ class WelcomeBody extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) {
                       return SignUpScreen();
+                    },
+                  ),
+                );
+              },
+            ),
+            RoundedButton(
+              color: kPrimaryColor,
+              icon: Icons.login,
+              text: "LOGIN",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return LoginScreen();
                     },
                   ),
                 );

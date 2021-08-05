@@ -24,11 +24,23 @@ class BuildCityComponents extends StatelessWidget {
         child: Stack(
           children: [
             Positioned.fill(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20.0),
-                child: Image.asset(
-                  "assets/images/citys/" + this.city.imageName + ".jpg",
-                  fit: BoxFit.cover,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: kPrimaryColor,
+                        blurRadius: 3,
+                        offset: Offset.zero,
+                      )
+                    ]),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Image.asset(
+                    "assets/images/citys/" + this.city.imageName + ".jpg",
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -57,19 +69,19 @@ class BuildCityComponents extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    BuildIcon(color: HOTELS, icon:city.icons[0]),
+                    BuildIcon(color: HOTELS, icon: city.icons[0]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: RESTAURANTS, icon:city.icons[1]),
+                    BuildIcon(color: RESTAURANTS, icon: city.icons[1]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: CAFES, icon:city.icons[2]),
+                    BuildIcon(color: CAFES, icon: city.icons[2]),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: SPORTS, icon:city.icons[3]),
+                    BuildIcon(color: SPORTS, icon: city.icons[3]),
                     SizedBox(
                       width: 10.0,
                     ),

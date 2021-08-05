@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
+import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
+
+import 'map_page.dart';
 
 class DetailsPage extends StatefulWidget {
   final SubServiceCategory subServiceCategory;
@@ -60,32 +63,25 @@ class _DetailsPageState extends State<DetailsPage> {
                       padding: const EdgeInsets.all(15),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          ClipOval(
-                            child: Container(
+                          BuildIcon(
                               color: widget.subServiceCategory.color,
-                              padding: EdgeInsets.all(10.0),
-                              child: Icon(
-                                widget.subServiceCategory.icon,
-                                color: Colors.white,
-                                size: 30.0,
+                              icon: widget.subServiceCategory.icon),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              textTheme("${widget.subServiceCategory.note}"),
+                              SizedBox(
+                                height: 5.0,
                               ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(10.0),
-                            decoration: BoxDecoration(
-                              color: widget.subServiceCategory.color,
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            child: Text(
-                              widget.subServiceCategory.name,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.bold,
+                              textTheme(
+                                  "${widget.subServiceCategory.prix}" + " DT"),
+                              SizedBox(
+                                height: 5.0,
                               ),
-                            ),
+                              textTheme(widget.subServiceCategory.name),
+                            ],
                           )
                         ],
                       ),
@@ -100,6 +96,53 @@ class _DetailsPageState extends State<DetailsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.location_on,
+                            color: widget.subServiceCategory.color,
+                          ),
+                          SizedBox(
+                            width: 2.0,
+                          ),
+                          Text(
+                            widget.subServiceCategory.position!,
+                            style: TextStyle(
+                              color: widget.subServiceCategory.color,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, left: 10),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.phone,
+                            color: widget.subServiceCategory.color,
+                          ),
+                          SizedBox(
+                            width: 2.0,
+                          ),
+                          Text(
+                            widget.subServiceCategory.phoneNumber!,
+                            style: TextStyle(
+                              color: widget.subServiceCategory.color,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.all(20.0),
                       child: Text(
@@ -158,8 +201,18 @@ class _DetailsPageState extends State<DetailsPage> {
                       child: RoundedButton(
                         icon: Icons.location_on_outlined,
                         color: widget.subServiceCategory.color,
-                        text: "MAP",
-                        press: () {},
+                        text: "Take me there",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MapPage(
+                                serviceCategorySelected:
+                                    widget.subServiceCategory,
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -200,6 +253,24 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
         );
       },
+    );
+  }
+
+  Widget textTheme(String text) {
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        color: widget.subServiceCategory.color,
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 17.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
   }
 }
