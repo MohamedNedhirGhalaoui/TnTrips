@@ -28,67 +28,75 @@ class _DetailsPageState extends State<DetailsPage> {
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(50.0),
               ),
-              child: Stack(
-                children: [
-                  Container(
-                    height: 300.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/images/services/hotels/tunisia/" +
-                                widget.subServiceCategory.imageName +
-                                ".jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Container(
+              child: InkWell(
+                onTap: () {
+                  showImageAndDetails(
+                      context,
+                      widget.subServiceCategory.imageName,
+                      widget.subServiceCategory.description);
+                },
+                child: Stack(
+                  children: [
+                    Container(
+                      height: 300.0,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                            colors: [
-                              Colors.black.withOpacity(0.6),
-                              Colors.transparent
-                            ]),
+                        image: DecorationImage(
+                          image: AssetImage(
+                              "assets/images/services/hotels/tunisia/" +
+                                  widget.subServiceCategory.imageName +
+                                  ".jpg"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    right: 0,
-                    left: 0,
-                    bottom: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          BuildIcon(
-                              color: widget.subServiceCategory.color,
-                              icon: widget.subServiceCategory.icon),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              textTheme("${widget.subServiceCategory.note}"),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              textTheme(
-                                  "${widget.subServiceCategory.prix}" + " DT"),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              textTheme(widget.subServiceCategory.name),
-                            ],
-                          )
-                        ],
+                    Positioned.fill(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withOpacity(0.6),
+                                Colors.transparent
+                              ]),
+                        ),
                       ),
                     ),
-                  ),
-                  MainAppBar()
-                ],
+                    Positioned(
+                      right: 0,
+                      left: 0,
+                      bottom: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            BuildIcon(
+                                color: widget.subServiceCategory.color,
+                                icon: widget.subServiceCategory.icon),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                textTheme("${widget.subServiceCategory.note}"),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                textTheme("${widget.subServiceCategory.prix}" +
+                                    " DT"),
+                                SizedBox(
+                                  height: 5.0,
+                                ),
+                                textTheme(widget.subServiceCategory.name),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    MainAppBar()
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -145,14 +153,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                     Padding(
                       padding: EdgeInsets.all(20.0),
-                      child: Text(
-                        "Gallery",
-                        style: TextStyle(
-                          color: widget.subServiceCategory.color,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: textTheme("Gallery"),
                     ),
                     Container(
                       height: 200.0,
@@ -270,7 +271,56 @@ class _DetailsPageState extends State<DetailsPage> {
           fontSize: 17.0,
           fontWeight: FontWeight.bold,
         ),
+        textAlign: TextAlign.center,
       ),
+    );
+  }
+
+//fonction permer l'affichage d'une image avec une description
+  showImageAndDetails(context, img, text) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Material(
+            type: MaterialType.transparency,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              padding: EdgeInsets.all(15),
+              height: 450,
+              width: MediaQuery.of(context).size.width * 0.8,
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.asset(
+                      "assets/images/services/hotels/tunisia/" + img + ".jpg",
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
+                    text,
+                    style: TextStyle(
+                      color: widget.subServiceCategory.color,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
