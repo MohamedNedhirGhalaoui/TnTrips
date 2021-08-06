@@ -69,7 +69,8 @@ class _BodyState extends State<SignUpBody> {
                       });
                     },
                   ),
-                  RoundedButton(icon: Icons.login,
+                  RoundedButton(
+                    icon: Icons.login,
                     color: kPrimaryColor,
                     text: "SIGNUP",
                     press: () async {

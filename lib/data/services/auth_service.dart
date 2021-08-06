@@ -8,7 +8,7 @@ class AuthService {
 
   // create user obj based on firebase user
   CurrentUser? _userFromFirebaseUser(User? user) {
-    return user != null ? CurrentUser(uid: user.uid) : null;
+    return user != null ? CurrentUser(uid: user.uid, email: user.email) : null;
   }
 
   //auth change user strame
@@ -50,7 +50,7 @@ class AuthService {
       UserCredential _result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       User? user = _result.user;
-      print(_userFromFirebaseUser(user));
+      print(user!.email);
       return _userFromFirebaseUser(user);
     } catch (e) {
       error_register = e.toString();

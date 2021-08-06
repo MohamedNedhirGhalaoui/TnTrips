@@ -122,6 +122,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ],
                       ),
@@ -235,18 +236,18 @@ class _DetailsPageState extends State<DetailsPage> {
             type: MaterialType.transparency,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(50),
                 color: Colors.white,
               ),
               padding: EdgeInsets.all(15),
-              height: 450,
-              width: MediaQuery.of(context).size.width * 0.8,
+              height: 500,
+              width: MediaQuery.of(context).size.width * 0.9,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(50),
                 child: Image.asset(
                   "assets/images/services/hotels/tunisia/" + img + ".jpg",
-                  width: 200,
-                  height: 200,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 500,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -286,20 +287,20 @@ class _DetailsPageState extends State<DetailsPage> {
             type: MaterialType.transparency,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+                color: widget.subServiceCategory.color,
               ),
               padding: EdgeInsets.all(15),
-              height: 450,
-              width: MediaQuery.of(context).size.width * 0.8,
+              height: 500,
+              width: MediaQuery.of(context).size.width * 0.9,
               child: Column(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(50),
                     child: Image.asset(
                       "assets/images/services/hotels/tunisia/" + img + ".jpg",
-                      width: 200,
-                      height: 200,
+                      width: 350,
+                      height: 350,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -309,7 +310,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   Text(
                     text,
                     style: TextStyle(
-                      color: widget.subServiceCategory.color,
+                      color: Colors.white,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
