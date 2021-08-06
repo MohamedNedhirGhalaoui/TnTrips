@@ -74,6 +74,7 @@ class _BodyState extends State<LoginScreenBody> {
                             error = _auth.error_signIn.substring(30);
                           });
                         } else {
+                          AuthService.currentUser = _resutl;
                           Navigator.pop(context, {});
                         }
                       }
@@ -90,6 +91,7 @@ class _BodyState extends State<LoginScreenBody> {
                 fontWeight: FontWeight.bold,
                 fontSize: 14.0,
               ),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(

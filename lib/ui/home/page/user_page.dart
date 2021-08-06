@@ -19,9 +19,8 @@ class UserPage extends StatelessWidget {
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
-                radius: 20,
-                backgroundImage: NetworkImage(urlImage),
+              child: ClipOval(
+                child: Image.asset(urlImage),
               ),
             ),
             IconButton(
@@ -34,7 +33,7 @@ class UserPage extends StatelessWidget {
               color: Colors.white,
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,10.0,10.0,10.0),
+              padding: const EdgeInsets.fromLTRB(0.0, 10.0, 10.0, 10.0),
               child: Text("0"),
             )
           ],

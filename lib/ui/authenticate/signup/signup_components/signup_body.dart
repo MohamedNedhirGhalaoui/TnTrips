@@ -1,10 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
+import 'package:tn_trips/data/models/current_user.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_components/signup_background.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_components/or_divider.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_components/signup_social_icon.dart';
-import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/common/already_have_an_account_acheck.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/ui/common/rounded_confirme_password_field.dart';
@@ -15,10 +16,10 @@ import 'package:tn_trips/data/services/auth_service.dart';
 
 class SignUpBody extends StatefulWidget {
   @override
-  _BodyState createState() => _BodyState();
+  _SignUpBodyState createState() => _SignUpBodyState();
 }
 
-class _BodyState extends State<SignUpBody> {
+class _SignUpBodyState extends State<SignUpBody> {
   AuthService _auth = AuthService();
 
   String email = '';
@@ -82,6 +83,8 @@ class _BodyState extends State<SignUpBody> {
                             error = _auth.error_register.substring(36);
                           });
                         } else {
+                          AuthService.currentUser = _resutl;
+
                           Navigator.pop(context, {});
                         }
                       }
@@ -98,6 +101,7 @@ class _BodyState extends State<SignUpBody> {
                 fontWeight: FontWeight.bold,
                 fontSize: 14.0,
               ),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: size.height * 0.03),
             AlreadyHaveAnAccountCheck(

@@ -5,6 +5,7 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   String error_register = '';
   String error_signIn = '';
+  static CurrentUser? currentUser;
 
   // create user obj based on firebase user
   CurrentUser? _userFromFirebaseUser(User? user) {
