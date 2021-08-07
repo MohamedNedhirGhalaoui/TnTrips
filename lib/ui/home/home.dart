@@ -25,6 +25,7 @@ class Home extends StatelessWidget {
               child: ListView.builder(
                   padding: EdgeInsets.only(bottom: 10.0),
                   itemCount: citys.length,
+                  physics: BouncingScrollPhysics(),
                   itemBuilder: (BuildContext contexte, int index) {
                     return BuildCityComponents(
                       city: citys[index],

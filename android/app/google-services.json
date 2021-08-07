@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "131664108375-tsl89lb735t0ii84al5vp0esems1d5d0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tn_trips",
+            "certificate_hash": "17d6c37d1bc4056b70f1025a09504ac2a3d63ccd"
+          }
+        },
+        {
           "client_id": "131664108375-20f0r1mj8aq45f59fb66ko96nemkve5k.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "131664108375-20f0r1mj8aq45f59fb66ko96nemkve5k.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "131664108375-a3q45m6jqaoiug9fcmo4s1d405h6j4nr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tnTrips"
+              }
             }
           ]
         }

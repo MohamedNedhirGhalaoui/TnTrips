@@ -161,6 +161,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       child: ListView.builder(
                           itemCount: widget.subServiceCategory.gallery.length,
                           scrollDirection: Axis.horizontal,
+                          physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
                               onTap: () {

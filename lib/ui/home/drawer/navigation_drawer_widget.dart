@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
 import 'package:tn_trips/ui/home/page/cafes_page.dart';
@@ -9,12 +10,15 @@ import 'package:tn_trips/ui/home/page/restaurants_page.dart';
 import 'package:tn_trips/ui/home/page/settings_page.dart';
 import 'package:tn_trips/ui/home/page/sports_page.dart';
 import 'package:tn_trips/ui/home/page/user_page.dart';
+import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
   AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
+    LoginWithGoogleAcounte loginWithGoogleAcounte =
+        Provider.of<LoginWithGoogleAcounte>(context, listen: false);
     final name = 'Nedhir';
     final email = "nedhir@gmail.com";
     final urlImage =
@@ -90,7 +94,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                       text: 'Logout',
                       icon: Icons.logout,
                       onClicked: () async {
-                        await _auth.signOut();
+                        if (loginWithGoogleAcounte.isUserLoggedIn()) {
+                          await loginWithGoogleAcounte.signOut();
+                          await _auth.signOut();
+                        } else {
+                          await _auth.signOut();
+                        }
                       })
                 ],
               ),

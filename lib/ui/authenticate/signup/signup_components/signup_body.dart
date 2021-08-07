@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/current_user.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
@@ -13,6 +14,8 @@ import 'package:tn_trips/ui/common/rounded_input_field.dart';
 import 'package:tn_trips/ui/common/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
+import 'package:tn_trips/ui/home/home.dart';
+import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 class SignUpBody extends StatefulWidget {
   @override
@@ -32,6 +35,8 @@ class _SignUpBodyState extends State<SignUpBody> {
 
   @override
   Widget build(BuildContext context) {
+    LoginWithGoogleAcounte loginWithGoogleAcounte =
+        Provider.of<LoginWithGoogleAcounte>(context, listen: false);
     Size size = MediaQuery.of(context).size;
     return SignUPBackground(
       child: SingleChildScrollView(
@@ -131,7 +136,13 @@ class _SignUpBodyState extends State<SignUpBody> {
                 ),
                 SocalIcon(
                   iconSrc: "assets/icons/google-plus.svg",
-                  press: () {},
+                  press: () async {
+                    bool succes =
+                        await loginWithGoogleAcounte.signInWithGoogle();
+                    if (succes) {
+                      Navigator.pop(context, {});
+                    }
+                  },
                 ),
               ],
             )

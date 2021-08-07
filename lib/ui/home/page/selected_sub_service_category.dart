@@ -46,6 +46,7 @@ class SelectedSubServiceCategory extends StatelessWidget {
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
+                physics: BouncingScrollPhysics(),
                 children: List.generate(
                   this.selectedServiceCategory.subServiceCategorys!.length,
                   (index) {

@@ -83,6 +83,7 @@ class SelectedCityPage extends StatelessWidget {
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
+                physics: BouncingScrollPhysics(),
                 children:
                     List.generate(this.city.servicecategorys.length, (index) {
                   return BuildServiceCategory(

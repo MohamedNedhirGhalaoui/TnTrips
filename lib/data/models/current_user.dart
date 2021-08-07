@@ -1,5 +1,7 @@
 class CurrentUser {
   final String? uid;
+  final String? displayName;
+  final String? photoUrl;
   final String? email;
-  CurrentUser({required this.uid, this.email});
+  CurrentUser({required this.uid, this.displayName, this.photoUrl, this.email});
 }
