@@ -74,7 +74,6 @@ class _BodyState extends State<LoginScreenBody> {
                             error = _auth.error_signIn.substring(30);
                           });
                         } else {
-                          AuthService.currentUser = _resutl;
                           Navigator.pop(context, {});
                         }
                       }

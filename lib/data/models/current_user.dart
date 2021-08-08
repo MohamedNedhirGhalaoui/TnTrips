@@ -3,5 +3,5 @@ class CurrentUser {
   final String? displayName;
   final String? photoUrl;
   final String? email;
-  CurrentUser({required this.uid, this.displayName, this.photoUrl, this.email});
+  CurrentUser({this.uid, this.displayName, this.photoUrl, this.email});
 }

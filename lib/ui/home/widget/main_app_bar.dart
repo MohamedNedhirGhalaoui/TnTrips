@@ -23,9 +23,12 @@ class _MainAppBarState extends State<MainAppBar> {
       iconTheme: IconThemeData(color: kPrimaryColor),
       centerTitle: true,
       backgroundColor: Colors.transparent,
-      title: CircleAvatar(
-        backgroundImage: AssetImage("assets/images/trip.png"),
-        radius: 26,
+      title: GestureDetector(
+        onTap: () {},
+        child: CircleAvatar(
+          backgroundImage: AssetImage("assets/images/trip.png"),
+          radius: 26,
+        ),
       ),
       elevation: 0.0,
     );

@@ -9,7 +9,6 @@ import 'package:tn_trips/ui/home/page/location_page.dart';
 import 'package:tn_trips/ui/home/page/restaurants_page.dart';
 import 'package:tn_trips/ui/home/page/settings_page.dart';
 import 'package:tn_trips/ui/home/page/sports_page.dart';
-import 'package:tn_trips/ui/home/page/user_page.dart';
 import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -19,32 +18,17 @@ class NavigationDrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     LoginWithGoogleAcounte loginWithGoogleAcounte =
         Provider.of<LoginWithGoogleAcounte>(context, listen: false);
-    final name = 'Nedhir';
-    final email = "nedhir@gmail.com";
-    final urlImage =
-        "https://image.flaticon.com/icons/png/512/2491/2491931.png";
-
     return Drawer(
       child: Material(
         color: kPrimaryColor,
         child: ListView(
           children: <Widget>[
-            buildHeader(
-              urlImage: urlImage,
-              name: name,
-              email: email,
-              onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => UserPage(
-                  name: 'user',
-                  urlImage: urlImage,
-                ),
-              )),
-            ),
             Container(
               padding: padding,
               child: Column(
                 children: [
-                  const SizedBox(height: 12),
+                  buildHeader(
+                      urlImage: "assets/images/trip.png", name: "Tn Trips"),
                   buildSearchField(),
                   const SizedBox(height: 16),
                   buildMenuItem(
@@ -96,7 +80,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                       onClicked: () async {
                         if (loginWithGoogleAcounte.isUserLoggedIn()) {
                           await loginWithGoogleAcounte.signOut();
-                          await _auth.signOut();
+                          Navigator.pop(context);
+                          _auth.signOut();
                         } else {
                           await _auth.signOut();
                         }
@@ -113,39 +98,24 @@ class NavigationDrawerWidget extends StatelessWidget {
   Widget buildHeader({
     required String urlImage,
     required String name,
-    required String email,
-    required VoidCallback onClicked,
   }) =>
-      InkWell(
-        onTap: onClicked,
-        child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
-          child: Row(
-            children: [
-              CircleAvatar(radius: 20, backgroundImage: NetworkImage(urlImage)),
-              SizedBox(width: 20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    email,
-                    style: TextStyle(fontSize: 14, color: Colors.white),
-                  ),
-                ],
-              ),
-              Spacer(),
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                child: Icon(Icons.add_comment_outlined, color: Colors.white),
-              )
-            ],
-          ),
+      Container(
+        padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
+        child: Row(
+          children: [
+            CircleAvatar(radius: 30, backgroundImage: AssetImage(urlImage)),
+            SizedBox(width: 20),
+            Text(
+              name,
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+            Spacer(),
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: Color.fromRGBO(30, 60, 168, 1),
+              child: Icon(Icons.add_comment_outlined, color: Colors.white),
+            )
+          ],
         ),
       );
 

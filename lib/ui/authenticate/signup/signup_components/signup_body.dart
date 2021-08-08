@@ -14,7 +14,6 @@ import 'package:tn_trips/ui/common/rounded_input_field.dart';
 import 'package:tn_trips/ui/common/rounded_password_field.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
-import 'package:tn_trips/ui/home/home.dart';
 import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 class SignUpBody extends StatefulWidget {
@@ -88,7 +87,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                             error = _auth.error_register.substring(36);
                           });
                         } else {
-                          AuthService.currentUser = _resutl;
+                         
 
                           Navigator.pop(context, {});
                         }

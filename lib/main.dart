@@ -1,9 +1,12 @@
 import 'package:tn_trips/data/models/current_user.dart';
+import 'package:tn_trips/ui/home/home.dart';
+import 'package:tn_trips/ui/routes/wrapper.dart';
 import 'package:tn_trips/ui/welcome/splash-screen.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
+import 'package:tn_trips/ui/welcome/welcome_screen.dart';
 import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 void main() async {
@@ -23,12 +26,19 @@ class MyApp extends StatelessWidget {
         ),
         Provider(
           create: (_) => LoginWithGoogleAcounte(),
-        )
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Loading(),
+        initialRoute: '/',
+        routes: {
+          '/':(context)=>Loading(),
+          '/home':(context)=>Home(),
+          '/wrraper':(context)=>Wrapper(),
+          '/welcomeScreen':(context)=>WelcomeScreen()
+        },
       ),
+      
     );
   }
 }
