@@ -16,19 +16,25 @@ class UserImage extends StatelessWidget {
         Provider.of<LoginWithGoogleAcounte>(context, listen: false);
     _currentUser = loginWithGoogleAcounte!.loggedInCurrentUser;
     if (loginWithGoogleAcounte!.isUserLoggedIn()) {
-      return Container(
-        margin: EdgeInsets.only(right: 10),
-        padding: EdgeInsets.all(10),
-        child: ClipOval(
-          child: Image.network(_currentUser!.photoUrl!),
+      return GestureDetector(
+        onTap: () {},
+        child: Container(
+          margin: EdgeInsets.only(right: 10),
+          padding: EdgeInsets.all(10),
+          child: ClipOval(
+            child: Image.network(_currentUser!.photoUrl!),
+          ),
         ),
       );
     } else {
-      return Container(
-        margin: EdgeInsets.only(right: 10),
-        padding: EdgeInsets.all(10),
-        child: ClipOval(
-          child: Image.asset("assets/images/welcome1.png"),
+      return GestureDetector(
+        onTap: () {},
+        child: Container(
+          margin: EdgeInsets.only(right: 10),
+          padding: EdgeInsets.all(10),
+          child: ClipOval(
+            child: Image.asset("assets/images/welcome1.png"),
+          ),
         ),
       );
     }

@@ -1,30 +1,19 @@
 import "package:flutter/material.dart";
 import 'package:tn_trips/common/constants.dart';
-import 'package:tn_trips/ui/routes/wrapper.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_screen_background.dart';
 
-class Loading extends StatefulWidget {
-  @override
-  _LoadingState createState() => _LoadingState();
-}
-
-class _LoadingState extends State<Loading> {
-  void setupLoading() async {
-    await Future.delayed(Duration(seconds: 3));
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return Wrapper();
-    }));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    setupLoading();
-  }
+class SplashScreen extends StatelessWidget {
+  final int duration;
+  final Widget? goTopage;
+  SplashScreen({required this.duration, this.goTopage});
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: this.duration), () {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => this.goTopage!));
+    });
     return Scaffold(
       body: LoginScreenBackground(
         child: Column(
@@ -59,20 +48,21 @@ class _LoadingState extends State<Loading> {
                 ),
               ),
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 CircleAvatar(
                   backgroundImage: AssetImage("assets/images/welcome1.png"),
                   radius: 30.0,
                 ),
                 CircleAvatar(
-              backgroundImage: AssetImage("assets/images/welcome2.png"),
-              radius: 30.0,
-            ),
-            CircleAvatar(
-              backgroundImage: AssetImage("assets/images/welcome3.png"),
-              radius: 30.0,
-            )
+                  backgroundImage: AssetImage("assets/images/welcome2.png"),
+                  radius: 30.0,
+                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/welcome3.png"),
+                  radius: 30.0,
+                )
               ],
             ),
           ],

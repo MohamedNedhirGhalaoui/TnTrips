@@ -188,38 +188,80 @@ class Utils {
                       description:
                           "The Hotel El Mechtel is a comfortable and functional 4-star hotel in the heart of Tunis, next to the business center and the attractive and peaceful Belvedere Park.",
                       gallery: [
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel1"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel2"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel3"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel4"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel5"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel6"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel7"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel8"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel9"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel10"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel11"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel12"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel13"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel14"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel15"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel16"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel17"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel18"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel19"),
-                        SubServiceCategoryImage(imageName: "GoldenTulipElMechtel20"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel1"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel2"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel3"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel4"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel5"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel6"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel7"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel8"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel9"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel10"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel11"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel12"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel13"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel14"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel15"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel16"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel17"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel18"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel19"),
+                        SubServiceCategoryImage(
+                            imageName: "GoldenTulipElMechtel20"),
                       ]),
                   SubServiceCategory(
                       name: "LE SUILTANA",
                       icon: Icons.local_hotel_rounded,
                       color: HOTELS,
                       imageName: "LESUILTANA",
-                      position: "",
-                      phoneNumber: "",
-                      note: 0.0,
-                      prix: 0.0,
-                      description: "",
-                      gallery: []),
+                      position: "Hammamet · 62.33 km",
+                      phoneNumber: "+216 72 280 588",
+                      note: 8.1,
+                      prix: 508,
+                      description:
+                          "Doté d'un accès direct à la plage d'Hammamet, l'hôtel 4 étoiles Le Sultan dispose de 2 piscines. Le centre-ville d'Hammamet est à 3 km.",
+                      gallery: [
+                        SubServiceCategoryImage(imageName: "LESUILTANA1"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA2"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA3"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA4"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA5"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA6"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA7"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA8"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA9"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA10"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA11"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA12"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA13"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA14"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA15"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA16"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA17"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA18"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA19"),
+                        SubServiceCategoryImage(imageName: "LESUILTANA20"),
+                      ]),
                   SubServiceCategory(
                       name: "IBIS",
                       icon: Icons.local_hotel_rounded,
@@ -292,7 +334,34 @@ class Utils {
                 color: RESTAURANTS,
                 icon: Icons.restaurant_menu_rounded,
                 imageName: "Restaurants",
-                subServiceCategorys: []),
+                subServiceCategorys: [
+                  SubServiceCategory(
+                    gallery: [
+                      SubServiceCategoryImage(imageName: "DarSlah1"),
+                      SubServiceCategoryImage(imageName: "DarSlah2"),
+                      SubServiceCategoryImage(imageName: "DarSlah3"),
+                      SubServiceCategoryImage(imageName: "DarSlah4"),
+                      SubServiceCategoryImage(imageName: "DarSlah5"),
+                      SubServiceCategoryImage(imageName: "DarSlah6"),
+                      SubServiceCategoryImage(imageName: "DarSlah7"),
+                      SubServiceCategoryImage(imageName: "DarSlah8"),
+                      SubServiceCategoryImage(imageName: "DarSlah9"),
+                      SubServiceCategoryImage(imageName: "DarSlah10"),
+                      SubServiceCategoryImage(imageName: "DarSlah11"),
+                      SubServiceCategoryImage(imageName: "DarSlah12"),
+                    ],
+                    name: "Dar Slah",
+                    icon: Icons.restaurant_menu_rounded,
+                    color: RESTAURANTS,
+                    imageName: "DarSlah",
+                    description:
+                        "En plein cœur de la Médina de Tunis, à 150m de la Mosquée Zitouna, sur l’une des artères les plus riches et colorées des souks.",
+                    note: 7.1,
+                    prix: 33,
+                    phoneNumber: "+216 71 261 026 ",
+                    position: "145,Rue de la Kasbah|La Medina 1006",
+                  )
+                ]),
             ServiceCategory(
                 name: "Cafes",
                 color: CAFES,

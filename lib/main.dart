@@ -32,13 +32,15 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/',
         routes: {
-          '/':(context)=>Loading(),
-          '/home':(context)=>Home(),
-          '/wrraper':(context)=>Wrapper(),
-          '/welcomeScreen':(context)=>WelcomeScreen()
+          '/': (context) => SplashScreen(
+                duration: 3,
+                goTopage: Wrapper(),
+              ),
+          '/home': (context) => Home(),
+          '/wrraper': (context) => Wrapper(),
+          '/welcomeScreen': (context) => WelcomeScreen(),
         },
       ),
-      
     );
   }
 }

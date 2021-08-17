@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/onboarding_page.dart';
 import 'package:tn_trips/data/services/utils.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/welcome/welcome_components/onboarding_page_slider.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -59,7 +60,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               InkWell(
                 onTap: () {
                   (_currentPage == (_pages.length - 1))
-                      ? Navigator.pop(context, {})
+                      ? Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpScreen()))
                       : _controller.nextPage(
                           duration: Duration(milliseconds: 800),
                           curve: Curves.easeInOutQuint);
