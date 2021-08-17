@@ -4,7 +4,6 @@ import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
-
 import 'map_page.dart';
 
 class DetailsPage extends StatefulWidget {

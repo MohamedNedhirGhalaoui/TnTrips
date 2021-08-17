@@ -5,10 +5,10 @@ import 'package:tn_trips/ui/home/page/detailes_page.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 
-class SelectedSubServiceCategory extends StatelessWidget {
-  final ServiceCategory selectedServiceCategory;
-  const SelectedSubServiceCategory(
-      {Key? key, required this.selectedServiceCategory})
+class SelectedCategoryService extends StatelessWidget {
+  final ServiceCategory slectedCategoryService;
+  const SelectedCategoryService(
+      {Key? key, required this.slectedCategoryService})
       : super(key: key);
 
   @override
@@ -25,15 +25,15 @@ class SelectedSubServiceCategory extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BuildIcon(
-                    color: this.selectedServiceCategory.color,
-                    icon: this.selectedServiceCategory.icon),
+                    color: this.slectedCategoryService.color,
+                    icon: this.slectedCategoryService.icon),
                 SizedBox(
                   width: 10.0,
                 ),
                 Text(
-                  this.selectedServiceCategory.name,
+                  this.slectedCategoryService.name,
                   style: TextStyle(
-                    color: this.selectedServiceCategory.color,
+                    color: this.slectedCategoryService.color,
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -48,7 +48,7 @@ class SelectedSubServiceCategory extends StatelessWidget {
                 crossAxisCount: 2,
                 physics: BouncingScrollPhysics(),
                 children: List.generate(
-                  this.selectedServiceCategory.subServiceCategorys!.length,
+                  this.slectedCategoryService.subServiceCategorys!.length,
                   (index) {
                     return GestureDetector(
                       onTap: () {
@@ -57,7 +57,7 @@ class SelectedSubServiceCategory extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => DetailsPage(
                                 subServiceCategory: this
-                                    .selectedServiceCategory
+                                    .slectedCategoryService
                                     .subServiceCategorys![index]),
                           ),
                         );
@@ -69,7 +69,7 @@ class SelectedSubServiceCategory extends StatelessWidget {
                               child: Image.asset(
                                 "assets/images/services/hotels/tunisia/" +
                                     this
-                                        .selectedServiceCategory
+                                        .slectedCategoryService
                                         .subServiceCategorys![index]
                                         .imageName +
                                     ".jpg",
@@ -83,12 +83,12 @@ class SelectedSubServiceCategory extends StatelessWidget {
                             ),
                             Text(
                               this
-                                  .selectedServiceCategory
+                                  .slectedCategoryService
                                   .subServiceCategorys![index]
                                   .name,
                               style: TextStyle(
                                 color: this
-                                    .selectedServiceCategory
+                                    .slectedCategoryService
                                     .subServiceCategorys![index]
                                     .color,
                                 fontSize: 14.0,

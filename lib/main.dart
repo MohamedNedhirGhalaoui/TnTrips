@@ -1,6 +1,9 @@
 import 'package:tn_trips/data/models/current_user.dart';
+import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
+import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/home/home.dart';
 import 'package:tn_trips/ui/routes/wrapper.dart';
+import 'package:tn_trips/ui/welcome/onboarding_page.dart';
 import 'package:tn_trips/ui/welcome/splash-screen.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +39,12 @@ class MyApp extends StatelessWidget {
                 duration: 3,
                 goTopage: Wrapper(),
               ),
-          '/home': (context) => Home(),
           '/wrraper': (context) => Wrapper(),
           '/welcomeScreen': (context) => WelcomeScreen(),
+          '/onboardingpage':(context)=>OnBoardingPage(),
+          'signUpScreen':(context)=>SignUpScreen(),
+          '/loginScreen':(context)=>LoginScreen(),
+          '/home': (context) => Home(),
         },
       ),
     );

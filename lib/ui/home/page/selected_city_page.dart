@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
-import 'package:tn_trips/ui/home/page/selected_sub_service_category.dart';
+import 'package:tn_trips/ui/home/page/selected_category_service.dart';
 import 'package:tn_trips/ui/home/widget/build_service_category.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 class SelectedCityPage extends StatelessWidget {
-  final City city;
-  SelectedCityPage({Key? key, required this.city}) : super(key: key);
+  final City? city;
+  SelectedCityPage({Key? key, this.city}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class SelectedCityPage extends StatelessWidget {
                 child: AnimatedTextKit(
                   animatedTexts: [
                     TyperAnimatedText(
-                      this.city.name,
+                      this.city!.name,
                       textStyle: TextStyle(
                         color: Colors.black,
                         fontSize: 20.0,
@@ -65,7 +65,7 @@ class SelectedCityPage extends StatelessWidget {
                       ),
                     ),
                     TyperAnimatedText(
-                      this.city.name,
+                      this.city!.name,
                       textStyle: TextStyle(
                         color: Colors.black,
                         fontSize: 20.0,
@@ -85,16 +85,16 @@ class SelectedCityPage extends StatelessWidget {
                 crossAxisCount: 2,
                 physics: BouncingScrollPhysics(),
                 children:
-                    List.generate(this.city.servicecategorys.length, (index) {
+                    List.generate(this.city!.servicecategorys.length, (index) {
                   return BuildServiceCategory(
-                    serviceCategory: city.servicecategorys[index],
+                    serviceCategory: city!.servicecategorys[index],
                     onServiceCategoryClick: () {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SelectedSubServiceCategory(
-                                  selectedServiceCategory:
-                                      city.servicecategorys[index])));
+                              builder: (context) => SelectedCategoryService(
+                                  slectedCategoryService:
+                                      city!.servicecategorys[index])));
                     },
                   );
                 }),

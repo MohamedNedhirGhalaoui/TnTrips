@@ -6,7 +6,6 @@ import 'package:tn_trips/ui/welcome/welcome_components/image_theme.dart';
 import 'package:tn_trips/ui/welcome/welcome_components/welcome_background.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/common/constants.dart';
-import 'package:flutter_svg/svg.dart';
 
 class WelcomeBody extends StatelessWidget {
   @override
