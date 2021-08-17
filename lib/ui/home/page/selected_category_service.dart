@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
+import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:tn_trips/use_cases/category_selection.dart';
@@ -17,6 +18,7 @@ class SelectedCategoryService extends StatelessWidget {
         Provider.of<CategorySelection>(context, listen: false);
     slectedCategoryService = categorySelection.selectedServiceCategory;
     return Scaffold(
+      bottomNavigationBar: BuildBottomNavigationBar(),
       appBar: MainAppBar(),
       body: Container(
         child: Column(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
+import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 class FavouritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -14,5 +15,6 @@ class FavouritesPage extends StatelessWidget {
           centerTitle: true,
           backgroundColor: kPrimaryColor,
         ),
+        bottomNavigationBar: BuildBottomNavigationBar(),
       );
 }

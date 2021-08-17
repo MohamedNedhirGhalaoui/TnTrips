@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
-import 'package:tn_trips/ui/home/page/selected_category_service.dart';
+import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 import 'package:tn_trips/ui/home/widget/build_service_category.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -19,6 +19,7 @@ class SelectedCityPage extends StatelessWidget {
         Provider.of<CategorySelection>(context, listen: false);
     city = categorySelection.selectedCity;
     return Scaffold(
+      bottomNavigationBar: BuildBottomNavigationBar(),
       appBar: MainAppBar(),
       body: Container(
         child: Column(

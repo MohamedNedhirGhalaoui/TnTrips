@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
+import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:tn_trips/use_cases/category_selection.dart';
@@ -97,7 +98,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         ),
                       ),
                     ),
-                    MainAppBar()
+                    MainAppBar(),
                   ],
                 ),
               ),
