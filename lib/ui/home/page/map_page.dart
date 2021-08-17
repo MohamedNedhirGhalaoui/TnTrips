@@ -4,9 +4,8 @@ import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 
 class MapPage extends StatelessWidget {
-  final SubServiceCategory serviceCategorySelected;
-  const MapPage({Key? key, required this.serviceCategorySelected})
-      : super(key: key);
+  final SubServiceCategory? serviceCategorySelected;
+  const MapPage({Key? key, this.serviceCategorySelected}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class MapPage extends StatelessWidget {
       body: Center(
         child: Icon(
           Icons.location_on,
-          color: this.serviceCategorySelected.color,
+          color: this.serviceCategorySelected!.color,
           size: 40,
         ),
       ),

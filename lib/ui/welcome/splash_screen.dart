@@ -5,14 +5,13 @@ import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_scr
 
 class SplashScreen extends StatelessWidget {
   final int duration;
-  final Widget? goTopage;
+  final String? goTopage;
   SplashScreen({required this.duration, this.goTopage});
 
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: this.duration), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => this.goTopage!));
+      Navigator.of(context).pushNamed(this.goTopage!);
     });
     return Scaffold(
       body: LoginScreenBackground(

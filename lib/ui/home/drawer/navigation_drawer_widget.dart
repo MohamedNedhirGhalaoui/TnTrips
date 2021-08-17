@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/services/auth_service.dart';
-import 'package:tn_trips/ui/home/page/cafes_page.dart';
-import 'package:tn_trips/ui/home/page/favourites_page.dart';
-import 'package:tn_trips/ui/home/page/hotels_page.dart';
-import 'package:tn_trips/ui/home/page/location_page.dart';
-import 'package:tn_trips/ui/home/page/restaurants_page.dart';
-import 'package:tn_trips/ui/home/page/settings_page.dart';
-import 'package:tn_trips/ui/home/page/sports_page.dart';
 import 'package:tn_trips/use_cases/login_with_googleAcounte.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -62,17 +55,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   buildMenuItem(
-                    text: 'Location',
-                    icon: Icons.location_on,
+                    text: 'Notifications',
+                    icon: Icons.notifications,
                     onClicked: () => selectedItem(context, 5),
                   ),
                   Divider(color: Colors.white70),
                   const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Settings',
-                    icon: Icons.settings,
-                    onClicked: () => selectedItem(context, 6),
-                  ),
                   const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Logout',
@@ -140,39 +128,22 @@ class NavigationDrawerWidget extends StatelessWidget {
 
     switch (index) {
       case 0:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => HotelsPage(),
-        ));
+        Navigator.of(context).pushNamed('/hotelsPage');
         break;
       case 1:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => RestaurantsPage(),
-        ));
+        Navigator.of(context).pushNamed('/restaurantsPage');
         break;
       case 2:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => CafesPage(),
-        ));
+        Navigator.of(context).pushNamed('/cafesPage');
         break;
       case 3:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SportsPage(),
-        ));
+        Navigator.of(context).pushNamed('/sportsPage');
         break;
       case 4:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => FavouritesPage(),
-        ));
+        Navigator.of(context).pushNamed('/favouritesPage');
         break;
       case 5:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => LocationPage(),
-        ));
-        break;
-      case 6:
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => SettingsPage(),
-        ));
+        Navigator.of(context).pushNamed('/notificationPage');
         break;
     }
   }

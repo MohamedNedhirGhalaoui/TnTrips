@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
+import 'package:tn_trips/use_cases/category_selection.dart';
 import 'map_page.dart';
 
 class DetailsPage extends StatefulWidget {
-  final SubServiceCategory subServiceCategory;
-  const DetailsPage({Key? key, required this.subServiceCategory})
-      : super(key: key);
+  SubServiceCategory? subServiceCategory;
+  DetailsPage({Key? key, this.subServiceCategory}) : super(key: key);
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
@@ -18,6 +19,9 @@ class DetailsPage extends StatefulWidget {
 class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
+    CategorySelection categorySelection =
+        Provider.of<CategorySelection>(context, listen: false);
+    widget.subServiceCategory = categorySelection.selectedSubServiceCategory;
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -31,8 +35,8 @@ class _DetailsPageState extends State<DetailsPage> {
                 onTap: () {
                   showImageAndDetails(
                       context,
-                      widget.subServiceCategory.imageName,
-                      widget.subServiceCategory.description);
+                      widget.subServiceCategory!.imageName,
+                      widget.subServiceCategory!.description);
                 },
                 child: Stack(
                   children: [
@@ -42,7 +46,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         image: DecorationImage(
                           image: AssetImage(
                               "assets/images/services/hotels/tunisia/" +
-                                  widget.subServiceCategory.imageName +
+                                  widget.subServiceCategory!.imageName +
                                   ".jpg"),
                           fit: BoxFit.cover,
                         ),
@@ -72,21 +76,21 @@ class _DetailsPageState extends State<DetailsPage> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             BuildIcon(
-                                color: widget.subServiceCategory.color,
-                                icon: widget.subServiceCategory.icon),
+                                color: widget.subServiceCategory!.color,
+                                icon: widget.subServiceCategory!.icon),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                textTheme("${widget.subServiceCategory.note}"),
+                                textTheme("${widget.subServiceCategory!.note}"),
                                 SizedBox(
                                   height: 5.0,
                                 ),
-                                textTheme("${widget.subServiceCategory.prix}" +
+                                textTheme("${widget.subServiceCategory!.prix}" +
                                     " DT"),
                                 SizedBox(
                                   height: 5.0,
                                 ),
-                                textTheme(widget.subServiceCategory.name),
+                                textTheme(widget.subServiceCategory!.name),
                               ],
                             )
                           ],
@@ -109,15 +113,15 @@ class _DetailsPageState extends State<DetailsPage> {
                         children: [
                           Icon(
                             Icons.location_on,
-                            color: widget.subServiceCategory.color,
+                            color: widget.subServiceCategory!.color,
                           ),
                           SizedBox(
                             width: 2.0,
                           ),
                           Text(
-                            widget.subServiceCategory.position!,
+                            widget.subServiceCategory!.position!,
                             style: TextStyle(
-                              color: widget.subServiceCategory.color,
+                              color: widget.subServiceCategory!.color,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -135,15 +139,15 @@ class _DetailsPageState extends State<DetailsPage> {
                         children: [
                           Icon(
                             Icons.phone,
-                            color: widget.subServiceCategory.color,
+                            color: widget.subServiceCategory!.color,
                           ),
                           SizedBox(
                             width: 2.0,
                           ),
                           Text(
-                            widget.subServiceCategory.phoneNumber!,
+                            widget.subServiceCategory!.phoneNumber!,
                             style: TextStyle(
-                              color: widget.subServiceCategory.color,
+                              color: widget.subServiceCategory!.color,
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -158,7 +162,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     Container(
                       height: 200.0,
                       child: ListView.builder(
-                          itemCount: widget.subServiceCategory.gallery.length,
+                          itemCount: widget.subServiceCategory!.gallery.length,
                           scrollDirection: Axis.horizontal,
                           physics: BouncingScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
@@ -166,7 +170,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               onTap: () {
                                 showImage(
                                     context,
-                                    widget.subServiceCategory.gallery[index]
+                                    widget.subServiceCategory!.gallery[index]
                                         .imageName);
                               },
                               child: Container(
@@ -178,7 +182,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                   image: DecorationImage(
                                     image: AssetImage(
                                         "assets/images/services/hotels/tunisia/" +
-                                            widget.subServiceCategory
+                                            widget.subServiceCategory!
                                                 .gallery[index].imageName +
                                             ".jpg"),
                                     fit: BoxFit.cover,
@@ -202,7 +206,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       padding: const EdgeInsets.all(8.0),
                       child: RoundedButton(
                         icon: Icons.location_on_outlined,
-                        color: widget.subServiceCategory.color,
+                        color: widget.subServiceCategory!.color,
                         text: "Take me there",
                         press: () {
                           Navigator.push(
@@ -210,7 +214,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             MaterialPageRoute(
                               builder: (context) => MapPage(
                                 serviceCategorySelected:
-                                    widget.subServiceCategory,
+                                    widget.subServiceCategory!,
                               ),
                             ),
                           );
@@ -262,7 +266,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return Container(
       padding: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: widget.subServiceCategory.color,
+        color: widget.subServiceCategory!.color,
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Text(
@@ -288,7 +292,7 @@ class _DetailsPageState extends State<DetailsPage> {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: widget.subServiceCategory.color,
+                color: widget.subServiceCategory!.color,
               ),
               padding: EdgeInsets.all(15),
               height: 500,

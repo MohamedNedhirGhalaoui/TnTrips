@@ -1,18 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
-import 'package:tn_trips/ui/home/page/detailes_page.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
+import 'package:tn_trips/use_cases/category_selection.dart';
 
 class SelectedCategoryService extends StatelessWidget {
-  final ServiceCategory slectedCategoryService;
-  const SelectedCategoryService(
-      {Key? key, required this.slectedCategoryService})
+  ServiceCategory? slectedCategoryService;
+  SelectedCategoryService({Key? key, this.slectedCategoryService})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CategorySelection categorySelection =
+        Provider.of<CategorySelection>(context, listen: false);
+    slectedCategoryService = categorySelection.selectedServiceCategory;
     return Scaffold(
       appBar: MainAppBar(),
       body: Container(
@@ -25,15 +28,15 @@ class SelectedCategoryService extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 BuildIcon(
-                    color: this.slectedCategoryService.color,
-                    icon: this.slectedCategoryService.icon),
+                    color: this.slectedCategoryService!.color,
+                    icon: this.slectedCategoryService!.icon),
                 SizedBox(
                   width: 10.0,
                 ),
                 Text(
-                  this.slectedCategoryService.name,
+                  this.slectedCategoryService!.name,
                   style: TextStyle(
-                    color: this.slectedCategoryService.color,
+                    color: this.slectedCategoryService!.color,
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
@@ -48,19 +51,14 @@ class SelectedCategoryService extends StatelessWidget {
                 crossAxisCount: 2,
                 physics: BouncingScrollPhysics(),
                 children: List.generate(
-                  this.slectedCategoryService.subServiceCategorys!.length,
+                  this.slectedCategoryService!.subServiceCategorys!.length,
                   (index) {
                     return GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DetailsPage(
-                                subServiceCategory: this
-                                    .slectedCategoryService
-                                    .subServiceCategorys![index]),
-                          ),
-                        );
+                        categorySelection.selectedSubServiceCategory = this
+                            .slectedCategoryService!
+                            .subServiceCategorys![index];
+                        Navigator.of(context).pushNamed('/detailesPage');
                       },
                       child: Container(
                         child: Column(
@@ -69,7 +67,7 @@ class SelectedCategoryService extends StatelessWidget {
                               child: Image.asset(
                                 "assets/images/services/hotels/tunisia/" +
                                     this
-                                        .slectedCategoryService
+                                        .slectedCategoryService!
                                         .subServiceCategorys![index]
                                         .imageName +
                                     ".jpg",
@@ -83,12 +81,12 @@ class SelectedCategoryService extends StatelessWidget {
                             ),
                             Text(
                               this
-                                  .slectedCategoryService
+                                  .slectedCategoryService!
                                   .subServiceCategorys![index]
                                   .name,
                               style: TextStyle(
                                 color: this
-                                    .slectedCategoryService
+                                    .slectedCategoryService!
                                     .subServiceCategorys![index]
                                     .color,
                                 fontSize: 14.0,

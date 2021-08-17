@@ -2,7 +2,7 @@ import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/data/models/service_catagory.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
 
-class Categoryselection {
+class CategorySelection {
   City? _selectedCity;
   ServiceCategory? _selectedServiceCategory;
   SubServiceCategory? _selectedSubServiceCategory;

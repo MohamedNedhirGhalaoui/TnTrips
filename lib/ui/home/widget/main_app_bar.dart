@@ -24,7 +24,10 @@ class _MainAppBarState extends State<MainAppBar> {
       centerTitle: true,
       backgroundColor: Colors.transparent,
       title: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context)
+              .popUntil((route) => route.settings.name == '/wrapper');
+        },
         child: CircleAvatar(
           backgroundImage: AssetImage("assets/images/trip.png"),
           radius: 26,

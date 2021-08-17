@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
-import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
-import 'package:tn_trips/ui/welcome/onboarding_page.dart';
 import 'package:tn_trips/ui/welcome/welcome_components/image_theme.dart';
 import 'package:tn_trips/ui/welcome/welcome_components/welcome_background.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
@@ -29,14 +26,7 @@ class WelcomeBody extends StatelessWidget {
               icon: Icons.auto_stories,
               text: "About Us",
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return OnBoardingPage();
-                    },
-                  ),
-                );
+                Navigator.of(context).pushNamed('/onboardingpage');
               },
             ),
             RoundedButton(
@@ -45,14 +35,7 @@ class WelcomeBody extends StatelessWidget {
               color: kPrimaryColor,
               textColor: Colors.white,
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
+                Navigator.of(context).pushNamed('/signUpScreen');
               },
             ),
             RoundedButton(
@@ -60,14 +43,7 @@ class WelcomeBody extends StatelessWidget {
               icon: Icons.login,
               text: "LOGIN",
               press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return LoginScreen();
-                    },
-                  ),
-                );
+                Navigator.of(context).pushNamed('/loginScreen');
               },
             ),
           ],

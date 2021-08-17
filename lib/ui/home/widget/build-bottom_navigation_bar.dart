@@ -9,14 +9,13 @@ import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class BuildBottomNavigationBar extends StatelessWidget {
   const BuildBottomNavigationBar({Key? key}) : super(key: key);
-  final urlImage =
-      "assets/images/welcome1.png";
+  final urlImage = "assets/images/welcome1.png";
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 80,
       width: double.infinity,
-      padding: EdgeInsets.only(bottom:20),
+      padding: EdgeInsets.only(bottom: 20),
       color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
@@ -24,8 +23,17 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LocationPage()));
+              Navigator.of(context)
+                  .popUntil((route) => route.settings.name == '/wrapper');
+            },
+            icon: Icon(Icons.home),
+            color: kPrimaryColor,
+            iconSize: 32.0,
+          ),
+          IconButton(
+            splashColor: kPrimaryColor,
+            onPressed: () {
+              Navigator.of(context).pushNamed('/locationPage');
             },
             icon: Icon(Icons.location_on),
             color: kPrimaryColor,
@@ -34,8 +42,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => ChatsPage()));
+              Navigator.of(context).pushNamed('/chatsPage');
             },
             icon: Icon(Icons.chat),
             color: kPrimaryColor,
@@ -44,8 +51,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => RecommendedPlacesPage()));
+              Navigator.of(context).pushNamed('/recommendedPlaces');
             },
             icon: Icon(Icons.recommend_rounded),
             iconSize: 32.0,
@@ -54,19 +60,16 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      UserPage(name: "Nedhir", urlImage: urlImage)));
+              Navigator.of(context).pushNamed('/userPage');
             },
             icon: Icon(Icons.person),
-            color:kPrimaryColor,
+            color: kPrimaryColor,
             iconSize: 32.0,
           ),
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ContactUsPage()));
+              Navigator.of(context).pushNamed('/contactUs');
             },
             icon: Icon(Icons.contact_mail),
             color: kPrimaryColor,
@@ -75,8 +78,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => SettingsPage()));
+             Navigator.of(context).pushNamed('/settingsPage');
             },
             icon: Icon(Icons.settings),
             color: kPrimaryColor,

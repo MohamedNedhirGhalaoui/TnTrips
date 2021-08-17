@@ -1,18 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
 import 'package:tn_trips/ui/home/page/selected_category_service.dart';
 import 'package:tn_trips/ui/home/widget/build_service_category.dart';
 import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:tn_trips/use_cases/category_selection.dart';
 
 class SelectedCityPage extends StatelessWidget {
-  final City? city;
+  City? city;
   SelectedCityPage({Key? key, this.city}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CategorySelection categorySelection =
+        Provider.of<CategorySelection>(context, listen: false);
+    city = categorySelection.selectedCity;
     return Scaffold(
       appBar: MainAppBar(),
       body: Container(
@@ -89,12 +94,10 @@ class SelectedCityPage extends StatelessWidget {
                   return BuildServiceCategory(
                     serviceCategory: city!.servicecategorys[index],
                     onServiceCategoryClick: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SelectedCategoryService(
-                                  slectedCategoryService:
-                                      city!.servicecategorys[index])));
+                      categorySelection.selectedServiceCategory =
+                          this.city!.servicecategorys[index];
+                      Navigator.of(context)
+                          .pushNamed('/selectedCategoryService');
                     },
                   );
                 }),
