@@ -29,7 +29,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.local_hotel_rounded,
                     onClicked: () => selectedItem(context, 0),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Restaurants',
                     icon: Icons.restaurant_menu_rounded,
@@ -53,7 +53,7 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.favorite_border,
                     onClicked: () => selectedItem(context, 4),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 16),
                   buildMenuItem(
                     text: 'Notifications',
                     icon: Icons.notifications,
@@ -61,15 +61,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   Divider(color: Colors.white70),
                   const SizedBox(height: 16),
-                  const SizedBox(height: 16),
                   buildMenuItem(
                       text: 'Logout',
                       icon: Icons.logout,
                       onClicked: () async {
                         if (loginWithGoogleAcounte.isUserLoggedIn()) {
                           await loginWithGoogleAcounte.signOut();
-                          Navigator.pop(context);
-                          _auth.signOut();
+                          Navigator.of(context).popUntil(
+                              (route) => route.settings.name == '/wrapper');
+                          await _auth.signOut();
                         } else {
                           await _auth.signOut();
                         }

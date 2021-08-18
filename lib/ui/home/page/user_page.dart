@@ -19,5 +19,30 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         appBar: MainAppBar(),
         bottomNavigationBar: BuildBottomNavigationBar(),
+        body: Container(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.person,
+                    color: kPrimaryColor,
+                    size: 25,
+                  ),
+                  SizedBox(width: 10),
+                  Text('User',
+                      style: TextStyle(
+                          color: kPrimaryColor,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold))
+                ],
+              ),
+              Expanded(
+                child: Container(),
+              )
+            ],
+          ),
+        ),
       );
 }

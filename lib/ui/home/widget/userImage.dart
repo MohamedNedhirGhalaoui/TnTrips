@@ -17,7 +17,9 @@ class UserImage extends StatelessWidget {
     _currentUser = loginWithGoogleAcounte!.loggedInCurrentUser;
     if (loginWithGoogleAcounte!.isUserLoggedIn()) {
       return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed('/userPage');
+        },
         child: Container(
           margin: EdgeInsets.only(right: 10),
           padding: EdgeInsets.all(10),
@@ -28,7 +30,9 @@ class UserImage extends StatelessWidget {
       );
     } else {
       return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed('/userPage');
+        },
         child: Container(
           margin: EdgeInsets.only(right: 10),
           padding: EdgeInsets.all(10),
