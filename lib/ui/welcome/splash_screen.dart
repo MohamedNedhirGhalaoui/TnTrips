@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import "package:flutter/material.dart";
 import 'package:tn_trips/common/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -10,42 +11,36 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: this.duration), () {
-      Navigator.of(context).pushNamed(this.goTopage!);
+    Future.delayed(Duration(seconds: this.duration), () async {
+      //fetch the list of city from the Firebase
+      
+      Navigator.of(context).pushReplacementNamed(this.goTopage!);
     });
     return Scaffold(
       body: LoginScreenBackground(
         child: Column(
           children: [
-            SizedBox(height: 100.0),
-            CircleAvatar(
-              backgroundImage: AssetImage("assets/images/trip.png"),
-              radius: 90.0,
-            ),
             SizedBox(
-              height: 35.0,
+              height: 300,
             ),
-            Text(
-              "TN TRIPS",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 15.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(120.0),
-                child: Center(
-                  child: SpinKitFadingCube(
-                    color: kPrimaryColor,
-                    size: 100.0,
+            Stack(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage("assets/images/trip.png"),
+                  radius: 80,
+                ),
+                SizedBox(
+                  width: 160,
+                  height: 160,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 5,
+                    valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
                   ),
                 ),
-              ),
+              ],
+            ),
+            SizedBox(
+              height: 200,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
