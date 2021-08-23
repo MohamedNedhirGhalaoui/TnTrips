@@ -14,4 +14,19 @@ class City {
       required this.color,
       required this.imageName,
       required this.servicecategorys});
+
+  factory City.fromJson(Map<String, dynamic> json) {
+    return City(
+        name: json['name'],
+        icons: [
+          Icons.local_hotel_rounded,
+          Icons.restaurant_menu_rounded,
+          Icons.coffee_maker_rounded,
+          Icons.sports
+        ],
+        color:Colors.white,
+        imageName: json['imageName'],
+        servicecategorys:
+            ServiceCategory.fromJsonArray(json['servicecategorys']));
+  }
 }
