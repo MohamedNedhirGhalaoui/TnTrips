@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import "package:flutter/material.dart";
+import 'package:provider/provider.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:tn_trips/data/services/data_base_service.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen_components/login_screen_background.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -11,9 +13,10 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DataBaseservice dataBaseservice = Provider.of(context, listen: false);
     Future.delayed(Duration(seconds: this.duration), () async {
       //fetch the list of city from the Firebase
-      
+      await dataBaseservice.getCitysCollectionFromFirebase();
       Navigator.of(context).pushReplacementNamed(this.goTopage!);
     });
     return Scaffold(

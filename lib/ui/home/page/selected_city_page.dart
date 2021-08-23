@@ -84,7 +84,7 @@ class SelectedCityPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 100.0,
+              height: 50.0,
             ),
             Expanded(
               child: GridView.count(

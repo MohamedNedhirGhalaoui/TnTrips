@@ -1,4 +1,5 @@
 import 'package:tn_trips/data/models/current_user.dart';
+import 'package:tn_trips/data/services/data_base_service.dart';
 import 'package:tn_trips/ui/authenticate/login/login_screen.dart';
 import 'package:tn_trips/ui/authenticate/signup/signup_screen.dart';
 import 'package:tn_trips/ui/home/home.dart';
@@ -50,6 +51,9 @@ class MyApp extends StatelessWidget {
         Provider(
           create: (_) => CategorySelection(),
         ),
+        Provider(
+          create: (_) => DataBaseservice(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -57,7 +61,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => SplashScreen(
-                duration: 3,
+                duration: 0,
                 goTopage: '/wrapper',
               ),
           '/wrapper': (context) => Wrapper(),

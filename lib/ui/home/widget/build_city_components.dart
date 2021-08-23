@@ -88,7 +88,7 @@ class BuildCityComponents extends StatelessWidget {
                     Text(
                       city.name,
                       style: TextStyle(
-                          color: Colors.white,
+                          color: city.color,
                           fontSize: 25,
                           fontWeight: FontWeight.bold),
                     )
