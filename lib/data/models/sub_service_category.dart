@@ -22,4 +22,28 @@ class SubServiceCategory extends ServiceCategory {
     required Color color,
     required String imageName,
   }) : super(name: name, icon: icon, color: color, imageName: imageName);
+
+  factory SubServiceCategory.fromJson(Map<String, dynamic> json) {
+    return SubServiceCategory(
+        name: json['name'],
+        icon: json['icon'],
+        color: json['color'],
+        imageName: json['imgName'],
+        description: json['description'],
+        phoneNumber: json['phoneNumber'],
+        note: json['note'],
+        position: json['position'],
+        prix: json['prix'],
+        gallery: SubServiceCategoryImage.fromJsonArray(json['gallery']));
+  }
+
+  static List<SubServiceCategory> fromJsonArray(List<dynamic> jsonArray) {
+    List<SubServiceCategory> subServiceCategoriesFromJson = [];
+
+    jsonArray.forEach((jsonData) {
+      subServiceCategoriesFromJson.add(SubServiceCategory.fromJson(jsonData));
+    });
+
+    return subServiceCategoriesFromJson;
+  }
 }
