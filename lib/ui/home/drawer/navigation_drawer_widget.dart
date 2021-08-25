@@ -21,7 +21,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               child: Column(
                 children: [
                   buildHeader(
-                      urlImage: "assets/images/trip.png", name: "Tn Trips"),
+                      urlImage: "assets/images/trip.png", name: "TN TRIPS"),
                   buildSearchField(),
                   const SizedBox(height: 16),
                   buildMenuItem(
@@ -29,32 +29,26 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.local_hotel_rounded,
                     onClicked: () => selectedItem(context, 0),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   buildMenuItem(
                     text: 'Restaurants',
                     icon: Icons.restaurant_menu_rounded,
                     onClicked: () => selectedItem(context, 1),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   buildMenuItem(
                     text: 'cafes',
                     icon: Icons.coffee_maker_rounded,
                     onClicked: () => selectedItem(context, 2),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   buildMenuItem(
                     text: 'Sports',
                     icon: Icons.sports,
                     onClicked: () => selectedItem(context, 3),
                   ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
-                    text: 'Notifications',
-                    icon: Icons.notifications,
-                    onClicked: () => selectedItem(context, 5),
-                  ),
                   Divider(color: Colors.white70),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 20),
                   buildMenuItem(
                       text: 'Logout',
                       icon: Icons.logout,
@@ -132,12 +126,6 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 3:
         Navigator.of(context).pushNamed('/sportsPage');
-        break;
-      case 4:
-        Navigator.of(context).pushNamed('/favouritesPage');
-        break;
-      case 5:
-        Navigator.of(context).pushNamed('/notificationPage');
         break;
     }
   }
