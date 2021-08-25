@@ -105,124 +105,127 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
             Expanded(
               child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 10),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.location_on,
-                            color: widget.subServiceCategory!.color,
-                          ),
-                          SizedBox(
-                            width: 2.0,
-                          ),
-                          Text(
-                            widget.subServiceCategory!.position!,
-                            style: TextStyle(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 10),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
                               color: widget.subServiceCategory!.color,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Text(
+                              widget.subServiceCategory!.position!,
+                              style: TextStyle(
+                                color: widget.subServiceCategory!.color,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 10),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.phone,
-                            color: widget.subServiceCategory!.color,
-                          ),
-                          SizedBox(
-                            width: 2.0,
-                          ),
-                          Text(
-                            widget.subServiceCategory!.phoneNumber!,
-                            style: TextStyle(
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 10),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.phone,
                               color: widget.subServiceCategory!.color,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
                             ),
-                          ),
-                        ],
+                            SizedBox(
+                              width: 2.0,
+                            ),
+                            Text(
+                              widget.subServiceCategory!.phoneNumber!,
+                              style: TextStyle(
+                                color: widget.subServiceCategory!.color,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: textTheme("Gallery"),
-                    ),
-                    Container(
-                      height: 200.0,
-                      child: ListView.builder(
-                          itemCount: widget.subServiceCategory!.gallery.length,
-                          scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) {
-                            return InkWell(
-                              onTap: () {
-                                showImage(
-                                    context,
-                                    widget.subServiceCategory!.gallery[index]
-                                        .imageName);
-                              },
-                              child: Container(
-                                margin: EdgeInsets.all(15.0),
-                                width: 170.0,
-                                height: 150.0,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25.0),
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                        "assets/images/services/hotels/tunisia/" +
-                                            widget.subServiceCategory!
-                                                .gallery[index].imageName +
-                                            ".jpg"),
-                                    fit: BoxFit.cover,
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.1),
-                                      offset: Offset.zero,
-                                      blurRadius: 10,
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: textTheme("Gallery"),
+                      ),
+                      Container(
+                        height: 200.0,
+                        child: ListView.builder(
+                            itemCount:
+                                widget.subServiceCategory!.gallery.length,
+                            scrollDirection: Axis.horizontal,
+                            physics: BouncingScrollPhysics(),
+                            itemBuilder: (BuildContext context, int index) {
+                              return InkWell(
+                                onTap: () {
+                                  showImage(
+                                      context,
+                                      widget.subServiceCategory!.gallery[index]
+                                          .imageName);
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.all(15.0),
+                                  width: 170.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25.0),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/services/hotels/tunisia/" +
+                                              widget.subServiceCategory!
+                                                  .gallery[index].imageName +
+                                              ".jpg"),
+                                      fit: BoxFit.cover,
                                     ),
-                                  ],
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        offset: Offset.zero,
+                                        blurRadius: 10,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RoundedButton(
+                          icon: Icons.location_on_outlined,
+                          color: widget.subServiceCategory!.color,
+                          text: "Take me there",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MapPage(
+                                  serviceCategorySelected:
+                                      widget.subServiceCategory!,
                                 ),
                               ),
                             );
-                          }),
-                    ),
-                    SizedBox(
-                      height: 30.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RoundedButton(
-                        icon: Icons.location_on_outlined,
-                        color: widget.subServiceCategory!.color,
-                        text: "Take me there",
-                        press: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MapPage(
-                                serviceCategorySelected:
-                                    widget.subServiceCategory!,
-                              ),
-                            ),
-                          );
-                        },
+                          },
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             )

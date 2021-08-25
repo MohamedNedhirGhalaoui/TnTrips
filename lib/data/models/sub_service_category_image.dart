@@ -3,7 +3,7 @@ class SubServiceCategoryImage {
   const SubServiceCategoryImage({required this.imageName});
 
   factory SubServiceCategoryImage.fromJson(Map<String, dynamic> json) {
-    return SubServiceCategoryImage(imageName: json['imgName']);
+    return SubServiceCategoryImage(imageName: json['imageName']);
   }
 
   static List<SubServiceCategoryImage> fromJsonArray(List<dynamic> jsonParts) {

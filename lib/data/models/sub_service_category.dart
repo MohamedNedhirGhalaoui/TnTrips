@@ -26,14 +26,14 @@ class SubServiceCategory extends ServiceCategory {
   factory SubServiceCategory.fromJson(Map<String, dynamic> json) {
     return SubServiceCategory(
         name: json['name'],
-        icon: json['icon'],
-        color: json['color'],
-        imageName: json['imgName'],
+        icon: IconData(int.parse(json['icon']),fontFamily: "MaterialIcons"),
+        color: Color(int.parse(json['color'])),
+        imageName: json['imageName'],
         description: json['description'],
         phoneNumber: json['phoneNumber'],
-        note: json['note'],
+        note: double.parse(json['note']),
         position: json['position'],
-        prix: json['prix'],
+        prix: double.parse(json['prix']),
         gallery: SubServiceCategoryImage.fromJsonArray(json['gallery']));
   }
 

@@ -10,12 +10,12 @@ import 'package:tn_trips/ui/home/widget/main_app_bar.dart';
 import 'package:tn_trips/use_cases/category_selection.dart';
 
 class Home extends StatelessWidget {
-  List<City> citys = Utils.getCitys();
+  List<City> citys = []; //Utils.getCitys();
 
   @override
   Widget build(BuildContext context) {
     DataBaseservice dataBaseservice = Provider.of(context, listen: false);
-    //citys = dataBaseservice.getCitys();
+    citys = dataBaseservice.getCitys();
     CategorySelection categorySelection =
         Provider.of<CategorySelection>(context, listen: false);
     return Scaffold(

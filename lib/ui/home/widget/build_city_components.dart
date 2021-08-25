@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
 import 'package:tn_trips/data/models/city.dart';
+import 'package:tn_trips/ui/home/widget/statistique.dart';
 
 import 'build_icon.dart';
 
@@ -69,19 +70,59 @@ class BuildCityComponents extends StatelessWidget {
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
-                    BuildIcon(color: HOTELS, icon: city.icons[0]),
+                    Column(
+                      children: [
+                        BuildIcon(color: HOTELS, icon: city.icons[0]),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Statistique(
+                            text:
+                                "${city.servicecategorys[0].subServiceCategorys!.length}"),
+                      ],
+                    ),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: RESTAURANTS, icon: city.icons[1]),
+                    Column(
+                      children: [
+                        BuildIcon(color: RESTAURANTS, icon: city.icons[1]),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Statistique(
+                            text:
+                                "${city.servicecategorys[1].subServiceCategorys!.length}")
+                      ],
+                    ),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: CAFES, icon: city.icons[2]),
+                    Column(
+                      children: [
+                        BuildIcon(color: CAFES, icon: city.icons[2]),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Statistique(
+                            text:
+                                "${city.servicecategorys[2].subServiceCategorys!.length}")
+                      ],
+                    ),
                     SizedBox(
                       width: 10.0,
                     ),
-                    BuildIcon(color: SPORTS, icon: city.icons[3]),
+                    Column(
+                      children: [
+                        BuildIcon(color: SPORTS, icon: city.icons[3]),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Statistique(
+                            text:
+                                "${city.servicecategorys[3].subServiceCategorys!.length}")
+                      ],
+                    ),
                     SizedBox(
                       width: 10.0,
                     ),
