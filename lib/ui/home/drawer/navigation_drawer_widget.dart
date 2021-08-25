@@ -49,12 +49,6 @@ class NavigationDrawerWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Favourites',
-                    icon: Icons.favorite_border,
-                    onClicked: () => selectedItem(context, 4),
-                  ),
-                  const SizedBox(height: 16),
-                  buildMenuItem(
                     text: 'Notifications',
                     icon: Icons.notifications,
                     onClicked: () => selectedItem(context, 5),

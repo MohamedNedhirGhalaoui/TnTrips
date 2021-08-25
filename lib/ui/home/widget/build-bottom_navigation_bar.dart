@@ -51,9 +51,9 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushNamed('/recommendedPlaces');
+              Navigator.of(context).pushNamed('/favouritesPage');
             },
-            icon: Icon(Icons.recommend_rounded),
+            icon: Icon(Icons.favorite_outline_rounded),
             iconSize: 32.0,
             color: kPrimaryColor,
           ),
@@ -69,16 +69,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushNamed('/contactUs');
-            },
-            icon: Icon(Icons.contact_mail),
-            color: kPrimaryColor,
-            iconSize: 32.0,
-          ),
-          IconButton(
-            splashColor: kPrimaryColor,
-            onPressed: () {
-             Navigator.of(context).pushNamed('/settingsPage');
+              Navigator.of(context).pushNamed('/settingsPage');
             },
             icon: Icon(Icons.settings),
             color: kPrimaryColor,
