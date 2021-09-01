@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tn_trips/data/models/sub_service_category.dart';
+import 'package:tn_trips/data/services/data_base_service.dart';
 import 'package:tn_trips/ui/common/rounded_button.dart';
 import 'package:tn_trips/ui/home/widget/build-bottom_navigation_bar.dart';
 import 'package:tn_trips/ui/home/widget/build_icon.dart';
@@ -23,6 +24,8 @@ class _DetailsPageState extends State<DetailsPage> {
     CategorySelection categorySelection =
         Provider.of<CategorySelection>(context, listen: false);
     widget.subServiceCategory = categorySelection.selectedSubServiceCategory;
+    DataBaseservice dataBaseservice =
+        Provider.of<DataBaseservice>(context, listen: false);
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
@@ -203,7 +206,39 @@ class _DetailsPageState extends State<DetailsPage> {
                             }),
                       ),
                       SizedBox(
-                        height: 30.0,
+                        height: 20.0,
+                      ),
+                      widget.subServiceCategory!.liked == false
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundedButton(
+                                icon: Icons.favorite,
+                                color: widget.subServiceCategory!.color,
+                                text: "add to favourites",
+                                press: () async {
+                                  //await dataBaseservice.updateData();
+                                  setState(() {
+                                    widget.subServiceCategory!.liked = true;
+                                  });
+                                },
+                              ),
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RoundedButton(
+                                icon: Icons.favorite,
+                                color: widget.subServiceCategory!.color,
+                                text: "remove from favourites",
+                                press: () async {
+                                  //await dataBaseservice.updateData(false);
+                                  setState(() {
+                                    widget.subServiceCategory!.liked = false;
+                                  });
+                                },
+                              ),
+                            ),
+                      SizedBox(
+                        height: 5.0,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),

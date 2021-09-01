@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tn_trips/common/constants.dart';
-import 'package:tn_trips/ui/home/page/chats_page.dart';
-import 'package:tn_trips/ui/home/page/contact_us_page.dart';
-import 'package:tn_trips/ui/home/page/location_page.dart';
-import 'package:tn_trips/ui/home/page/recommended_places_page.dart';
-import 'package:tn_trips/ui/home/page/settings_page.dart';
-import 'package:tn_trips/ui/home/page/user_page.dart';
 
 class BuildBottomNavigationBar extends StatelessWidget {
   const BuildBottomNavigationBar({Key? key}) : super(key: key);
-  final urlImage = "assets/images/welcome1.png";
+  //final urlImage = "assets/images/welcome1.png";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +13,7 @@ class BuildBottomNavigationBar extends StatelessWidget {
       color: Colors.transparent,
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
@@ -42,18 +36,9 @@ class BuildBottomNavigationBar extends StatelessWidget {
           IconButton(
             splashColor: kPrimaryColor,
             onPressed: () {
-              Navigator.of(context).pushNamed('/chatsPage');
-            },
-            icon: Icon(Icons.chat),
-            color: kPrimaryColor,
-            iconSize: 32.0,
-          ),
-          IconButton(
-            splashColor: kPrimaryColor,
-            onPressed: () {
               Navigator.of(context).pushNamed('/favouritesPage');
             },
-            icon: Icon(Icons.favorite_outline_rounded),
+            icon: Icon(Icons.favorite),
             iconSize: 32.0,
             color: kPrimaryColor,
           ),

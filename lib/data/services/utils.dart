@@ -18,7 +18,7 @@ class Utils {
             Icons.sports
           ],
           color: Colors.white,
-          imageName: "Tunisia",
+          imageName: "Tunis",
           servicecategorys: [
             ServiceCategory(
                 name: "Hotels",
@@ -239,7 +239,7 @@ class Utils {
                       note: 8.1,
                       prix: 508,
                       description:
-                          "Doté d'un accès direct à la plage d'Hammamet, l'hôtel 4 étoiles Le Sultan dispose de 2 piscines. Le centre-ville d'Hammamet est à 3 km.",
+                          " ",
                       gallery: [
                         SubServiceCategoryImage(imageName: "LESUILTANA1"),
                         SubServiceCategoryImage(imageName: "LESUILTANA2"),

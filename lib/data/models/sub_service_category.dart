@@ -9,6 +9,7 @@ class SubServiceCategory extends ServiceCategory {
   double? note;
   double? prix;
   String? description;
+  bool? liked=false;
   List<SubServiceCategoryImage> gallery;
   SubServiceCategory({
     this.prix,
@@ -26,7 +27,7 @@ class SubServiceCategory extends ServiceCategory {
   factory SubServiceCategory.fromJson(Map<String, dynamic> json) {
     return SubServiceCategory(
         name: json['name'],
-        icon: IconData(int.parse(json['icon']),fontFamily: "MaterialIcons"),
+        icon: IconData(int.parse(json['icon']), fontFamily: "MaterialIcons"),
         color: Color(int.parse(json['color'])),
         imageName: json['imageName'],
         description: json['description'],
